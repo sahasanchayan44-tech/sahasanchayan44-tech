@@ -1,0 +1,76 @@
+name: Daily GitHub Telemetry Synchronization
+
+'on':
+  schedule:
+    # Run once every day at 02:17 UTC (avoiding top-of-hour load spikes)
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Force snapshot write even if substantive data is unchanged'
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: github-telemetry-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync-telemetry:
+    name: Ingest and Validate GitHub Telemetry
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Execute Telemetry Collector & Schema Validator
+        id: collector
+        run: |
+          echo "================================================================"
+          echo "=== RUNNING BLUEPRINT GITHUB TELEMETRY SYNCHRONIZATION ==="
+          echo "================================================================"
+          echo "Trigger event: ${{ github.event_name }}"
+          echo "Execution timestamp (UTC): $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+
+          if [ "${{ github.event.inputs.force_update }}" = "true" ]; then
+            echo "[MODE] Forced update enabled via manual workflow_dispatch."
+            node scripts/fetch-public-github-data.js
+          else
+            echo "[MODE] Standard synchronization with substantive change detection."
+            node scripts/fetch-public-github-data.js --only-if-changed
+          fi
+
+      - name: Check for Telemetry Modifications
+        id: git_diff
+        run: |
+          if git diff --quiet docs/data/github-data.json; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "✓ TELEMETRY STATUS: No substantive changes detected. Current snapshot is up to date."
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "✓ TELEMETRY STATUS: Substantive changes detected. Snapshot updated."
+            git status --short docs/data/github-data.json
+          fi
+
+      - name: Publish Updated Telemetry Snapshot
+        if: steps.git_diff.outputs.has_changes == 'true'
+        run: |
+          git config user.name "Sanchayan Saha"
+          git config user.email "268472249+sahasanchayan44-tech@users.noreply.github.com"
+          git add docs/data/github-data.json
+          git commit -m "chore(telemetry): daily GitHub data synchronization"
+          git push origin main
+          echo "✓ PUBLICATION: Telemetry commit pushed to origin/main. GitHub Pages will publish update."

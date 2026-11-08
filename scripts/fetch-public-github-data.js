@@ -342,6 +342,8 @@ class GitHubCollector {
     this.lastReset = null;
     this.dryRun = options.dryRun || false;
     this.mockLowQuota = options.mockLowQuota || false;
+    this.onlyIfChanged = options.onlyIfChanged || false;
+    this.wasUpdated = false;
     this.targetPath = options.targetPath || path.resolve(__dirname, '../docs/data/github-data.json');
     this.tempPath = options.tempPath || path.resolve(__dirname, '../docs/data/github-data.json.tmp');
     this.schemaPath = options.schemaPath || path.resolve(__dirname, '../docs/data/github-data-schema.json');
@@ -385,8 +387,9 @@ class GitHubCollector {
             reject(new Error(`API Rate Limit Exceeded or Forbidden (HTTP ${res.statusCode}) on ${endpoint}`));
           } else if (res.statusCode >= 500 && attempt <= 2 && this.retryCount < this.maxRetries) {
             this.retryCount++;
-            console.warn(`[RETRY #${this.retryCount}] Transient HTTP ${res.statusCode} on ${endpoint}. Retrying after 1s...`);
-            await sleep(1000);
+            const backoffMs = Math.min(1000 * Math.pow(2, attempt - 1), 4000);
+            console.warn(`[RETRY #${this.retryCount}] Transient HTTP ${res.statusCode} on ${endpoint}. Retrying after ${backoffMs}ms...`);
+            await sleep(backoffMs);
             try {
               const retryRes = await this.makeRequest(endpoint, attempt + 1);
               resolve(retryRes);
@@ -402,8 +405,9 @@ class GitHubCollector {
       req.on('error', async (err) => {
         if (attempt <= 2 && this.retryCount < this.maxRetries) {
           this.retryCount++;
-          console.warn(`[RETRY #${this.retryCount}] Network error (${err.message}) on ${endpoint}. Retrying after 1s...`);
-          await sleep(1000);
+          const backoffMs = Math.min(1000 * Math.pow(2, attempt - 1), 4000);
+          console.warn(`[RETRY #${this.retryCount}] Network error (${err.message}) on ${endpoint}. Retrying after ${backoffMs}ms...`);
+          await sleep(backoffMs);
           try {
             const retryRes = await this.makeRequest(endpoint, attempt + 1);
             resolve(retryRes);
@@ -740,12 +744,70 @@ class GitHubCollector {
     return true;
   }
 
+  hasSubstantiveChanges(newPayload, existingPayload) {
+    if (!existingPayload) return true;
+
+    // 1. Compare User Profile stats
+    const userKeys = ['login', 'id', 'public_repos', 'followers', 'following', 'public_gists'];
+    for (const k of userKeys) {
+      if (newPayload.user?.[k] !== existingPayload.user?.[k]) return true;
+    }
+
+    // 2. Compare Telemetry aggregates
+    const telemKeys = ['total_stars', 'total_forks', 'account_age_days', 'public_events_90d_count'];
+    for (const k of telemKeys) {
+      if (newPayload.telemetry?.[k] !== existingPayload.telemetry?.[k]) return true;
+    }
+
+    // Compare primary ecosystems
+    const newEco = (newPayload.telemetry?.primary_ecosystems || []).slice().sort().join(',');
+    const oldEco = (existingPayload.telemetry?.primary_ecosystems || []).slice().sort().join(',');
+    if (newEco !== oldEco) return true;
+
+    // 3. Compare Repositories (count, names, stars, forks, languages, updated_at, pushed_at, default_branch, descriptions)
+    if ((newPayload.repositories?.length || 0) !== (existingPayload.repositories?.length || 0)) return true;
+    for (const nr of (newPayload.repositories || [])) {
+      const er = (existingPayload.repositories || []).find(r => r.name === nr.name);
+      if (!er) return true;
+      if (nr.stars !== er.stars || nr.forks !== er.forks) return true;
+      if (nr.primary_language !== er.primary_language) return true;
+      if (nr.default_branch !== er.default_branch) return true;
+      if (nr.api_description !== er.api_description) return true;
+      if (nr.updated_at !== er.updated_at || nr.pushed_at !== er.pushed_at) return true;
+      if (JSON.stringify(nr.languages) !== JSON.stringify(er.languages)) return true;
+    }
+
+    // 4. Compare Recent Commits (shas, dates)
+    const newShas = (newPayload.recent_repository_commits || []).map(c => `${c.repository}@${c.commit_sha}`).join(',');
+    const oldShas = (existingPayload.recent_repository_commits || []).map(c => `${c.repository}@${c.commit_sha}`).join(',');
+    if (newShas !== oldShas) return true;
+
+    // 5. Compare Historical Milestones count
+    if ((newPayload.historical_milestones?.length || 0) !== (existingPayload.historical_milestones?.length || 0)) return true;
+
+    return false;
+  }
+
   writeAtomicSnapshot(payload) {
+    if (this.onlyIfChanged && fs.existsSync(this.targetPath)) {
+      try {
+        const existing = JSON.parse(fs.readFileSync(this.targetPath, 'utf8'));
+        if (!this.hasSubstantiveChanges(payload, existing)) {
+          console.log(`[SYNC NO-OP] Telemetry data is substantively identical to existing snapshot. Skipping write to ${this.targetPath}.`);
+          this.wasUpdated = false;
+          return false;
+        }
+      } catch (readErr) {
+        console.warn(`[SYNC WARNING] Failed to parse existing snapshot for comparison: ${readErr.message}. Proceeding with atomic write.`);
+      }
+    }
+
     const jsonString = JSON.stringify(payload, null, 2);
 
     if (this.dryRun) {
       console.log(`[DRY-RUN] Schema validation passed. Would write ${jsonString.length} bytes to ${this.targetPath}.`);
-      return;
+      this.wasUpdated = true;
+      return true;
     }
 
     const dataDir = path.dirname(this.targetPath);
@@ -756,7 +818,9 @@ class GitHubCollector {
     try {
       fs.writeFileSync(this.tempPath, jsonString, 'utf8');
       fs.renameSync(this.tempPath, this.targetPath);
+      this.wasUpdated = true;
       console.log(`✓ ATOMIC WRITE: Successfully wrote ${jsonString.length} bytes to ${this.targetPath}`);
+      return true;
     } catch (fsErr) {
       console.error(`[FILE SYSTEM ERROR] Atomic snapshot write failed: ${fsErr.message}. Existing snapshot preserved.`);
       throw fsErr;
@@ -779,10 +843,14 @@ if (require.main === module) {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
   const mockLowQuota = args.includes('--mock-low-quota');
+  const onlyIfChanged = args.includes('--only-if-changed');
 
-  const collector = new GitHubCollector({ dryRun, mockLowQuota });
+  const collector = new GitHubCollector({ dryRun, mockLowQuota, onlyIfChanged });
   collector.collect()
-    .then(() => process.exit(0))
+    .then(() => {
+      console.log(`[STATUS] Telemetry update status: ${collector.wasUpdated ? 'UPDATED' : 'UNCHANGED'}`);
+      process.exit(0);
+    })
     .catch((err) => {
       console.error('\nCollector execution failed:', err.message);
       process.exit(1);
