@@ -779,14 +779,14 @@ class GitHubCollector {
       if (JSON.stringify(nr.languages) !== JSON.stringify(er.languages)) return true;
     }
 
-    // 4. Compare Recent Commits (ignoring self-authored chore(telemetry) commits)
-    const isTelemetryCommit = (c) => c.message && c.message.startsWith('chore(telemetry):');
+    // 4. Compare Recent Commits for project repositories (ignoring meta profile repository self-commits)
+    const isProfileRepo = (c) => c.repository === `${USERNAME}/${USERNAME}`;
     const newShas = (newPayload.recent_repository_commits || [])
-      .filter(c => !isTelemetryCommit(c))
+      .filter(c => !isProfileRepo(c))
       .map(c => `${c.repository}@${c.commit_sha}`)
       .join(',');
     const oldShas = (existingPayload.recent_repository_commits || [])
-      .filter(c => !isTelemetryCommit(c))
+      .filter(c => !isProfileRepo(c))
       .map(c => `${c.repository}@${c.commit_sha}`)
       .join(',');
     if (newShas !== oldShas) return true;
