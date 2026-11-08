@@ -1,14 +1,14 @@
 {
   "provenance": {
-    "collected_at_utc": "2026-11-08T16:01:35.336Z",
+    "collected_at_utc": "2026-11-08T16:04:16.095Z",
     "collector_version": "1.2.0",
     "access_mode": "UNAUTHENTICATED_PUBLIC_REST",
     "primary_source": "https://api.github.com/users/sahasanchayan44-tech",
     "rate_limit_snapshot": {
       "limit": 60,
-      "remaining": 35,
-      "reset_utc": "2026-11-08T16:45:55.000Z",
-      "used": 25
+      "remaining": 37,
+      "reset_utc": "2026-11-08T17:04:09.000Z",
+      "used": 23
     }
   },
   "user": {
@@ -42,14 +42,14 @@
       "category": "General",
       "primary_language": "JavaScript",
       "languages": {
-        "JavaScript": 282734
+        "JavaScript": 283019
       },
       "stars": 0,
       "forks": 0,
       "default_branch": "main",
       "created_at": "2026-11-08T04:57:48Z",
-      "updated_at": "2026-11-08T16:00:05Z",
-      "pushed_at": "2026-11-08T16:00:01Z",
+      "updated_at": "2026-11-08T16:03:36Z",
+      "pushed_at": "2026-11-08T16:03:32Z",
       "repo_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech",
       "api_description": "Engineering portfolio, interactive technical dossier, and project archive.",
       "architectural_description": "Public engineering repository registered under GitHub user namespace.",
@@ -463,6 +463,22 @@
   "recent_repository_commits": [
     {
       "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
+      "commit_sha": "47b4942",
+      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/47b494270efff4825109a129d740cf592a00f92b",
+      "author_login": "sahasanchayan44-tech",
+      "message": "fix(automation): exclude self-authored sync commits from substantive change trigger",
+      "committed_at": "2026-11-08T16:03:30Z"
+    },
+    {
+      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
+      "commit_sha": "1bdbbac",
+      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/1bdbbac4a83572c523422518db7672637612caf2",
+      "author_login": "sahasanchayan44-tech",
+      "message": "chore(telemetry): daily GitHub data synchronization",
+      "committed_at": "2026-11-08T16:01:35Z"
+    },
+    {
+      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
       "commit_sha": "add6a0b",
       "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/add6a0bb80ab6086d98a3c1301de42e5b0c62d41",
       "author_login": "sahasanchayan44-tech",
@@ -484,22 +500,6 @@
       "author_login": "sahasanchayan44-tech",
       "message": "docs: publish BLUEPRINT v1.0.0 engineering case study",
       "committed_at": "2026-11-08T14:44:07Z"
-    },
-    {
-      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
-      "commit_sha": "54e98ee",
-      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/54e98ee0c97b7e728b375f38b5b3ea35a7606f9f",
-      "author_login": "sahasanchayan44-tech",
-      "message": "test(functional): replace arbitrary sleep timeouts with deterministic DOM readiness polling",
-      "committed_at": "2026-11-08T13:54:54Z"
-    },
-    {
-      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
-      "commit_sha": "e2f0187",
-      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/e2f018728050b3904ddf083efc22f70359acdfd0",
-      "author_login": "sahasanchayan44-tech",
-      "message": "fix(assets): co-locate profile CAD SVGs in docs/assets/profile for GitHub Pages publication",
-      "committed_at": "2026-11-08T10:02:19Z"
     },
     {
       "repository": "sahasanchayan44-tech/portfolio",
