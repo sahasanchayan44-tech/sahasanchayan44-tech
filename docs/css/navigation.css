@@ -1,0 +1,175 @@
+/* ==========================================================================
+   BLUEPRINT / FORGE RUNTIME — UNIFIED DOSSIER NAVIGATION
+   Document ID: BP-CSS-NAV-REV01
+   ========================================================================== */
+
+/* Persistent Sheet Navigation Bar */
+.sheet-nav-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background-color: rgba(11, 23, 48, 0.95);
+  border-bottom: 1px solid var(--border);
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Prev / Next CAD Action Controls */
+.nav-arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background-color: rgba(16, 31, 59, 0.6);
+  border: 1px solid var(--border-cyan);
+  color: var(--cyan);
+  font-family: var(--font-tech);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--trans-fast);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.nav-arrow-btn:hover:not(:disabled) {
+  background-color: var(--cyan-subtle);
+  border-color: var(--cyan-bright);
+  color: var(--text-primary);
+  box-shadow: 0 0 12px rgba(66, 204, 245, 0.25);
+}
+
+.nav-arrow-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+
+/* Sheet Tabs Strip (Desktop & Tablet) */
+.nav-sheets-scroller {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 2px 4px;
+}
+
+.nav-sheets-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.sheet-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background-color: rgba(16, 31, 59, 0.4);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-family: var(--font-tech);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--trans-fast);
+  text-decoration: none;
+}
+
+.sheet-tab-btn .tab-num {
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.sheet-tab-btn:hover {
+  border-color: var(--border-cyan);
+  color: var(--text-primary);
+  background-color: rgba(66, 204, 245, 0.08);
+}
+
+.sheet-tab-btn.active {
+  background-color: rgba(66, 204, 245, 0.16);
+  border-color: var(--cyan-bright);
+  color: var(--text-primary);
+  box-shadow: 0 0 12px rgba(66, 204, 245, 0.2);
+}
+
+.sheet-tab-btn.active .tab-num {
+  color: var(--cyan-bright);
+}
+
+/* Active Sheet Headline Badge */
+.nav-active-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-meta);
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.nav-active-label strong {
+  color: var(--cyan-bright);
+  font-weight: 600;
+}
+
+/* Mobile Quick Selector */
+.mobile-sheet-selector-wrap {
+  display: none;
+  flex: 1;
+}
+
+.mobile-sheet-select {
+  width: 100%;
+  padding: 6px 10px;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-cyan);
+  color: var(--cyan);
+  font-family: var(--font-tech);
+  font-size: 11px;
+  text-transform: uppercase;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.mobile-sheet-select option {
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+}
+
+@media (max-width: 860px) {
+  .nav-sheets-scroller {
+    display: none;
+  }
+  .mobile-sheet-selector-wrap {
+    display: block;
+  }
+  .nav-active-label {
+    display: none;
+  }
+}
+
+/* Sheet Container Visibility Toggle */
+.sheet-container {
+  display: none !important;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.sheet-container.active-sheet {
+  display: flex !important;
+  opacity: 1 !important;
+  transform: translateY(0);
+}

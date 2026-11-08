@@ -1,0 +1,299 @@
+/* ==========================================================================
+   BLUEPRINT / FORGE RUNTIME — SHEET 01: SYSTEM COVER
+   Document ID: BP-CSS-S01-REV01
+   ========================================================================== */
+
+/* Main Container for Sheet 01 */
+.sheet-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 18px 14px;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .sheet-container {
+    padding: 24px 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .sheet-container {
+    padding: 28px 40px;
+  }
+}
+
+/* Two-Column Asymmetric Blueprint Grid */
+.sheet-hero-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  flex: 1;
+}
+
+@media (min-width: 1024px) {
+  .sheet-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 36px;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1440px) {
+  .sheet-hero-grid {
+    grid-template-columns: 0.95fr 1.25fr;
+    gap: 48px;
+  }
+}
+
+/* LEFT COLUMN: Dossier Identity & Technical Statement */
+.dossier-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* Mobile Ordering & Structural Flow */
+@media (max-width: 1023px) {
+  .dossier-col {
+    display: contents !important;
+  }
+  .dossier-header-block {
+    order: 1;
+  }
+  .schematic-col {
+    order: 2;
+    margin: 12px 0;
+  }
+  .dossier-details-block {
+    order: 3;
+  }
+}
+
+/* Dossier Identity Display Title (Bespoke Architectural Display) */
+.dossier-title {
+  margin: 0 0 16px 0;
+  padding: 0;
+  line-height: 1;
+  width: 100%;
+  max-width: 100%;
+}
+
+.dossier-title-vector {
+  display: block;
+  width: 100%;
+  max-width: 530px;
+  height: auto;
+  max-height: 62px;
+  color: var(--text-primary);
+  filter: drop-shadow(0 0 24px rgba(66, 204, 245, 0.16));
+}
+
+@media (max-width: 900px) {
+  .dossier-title-vector {
+    max-width: 100%;
+    max-height: 54px;
+  }
+}
+
+@media (max-width: 640px) {
+  .dossier-title {
+    margin-bottom: 12px;
+  }
+  .dossier-title-vector {
+    max-width: 100%;
+    max-height: 44px;
+  }
+}
+
+.dossier-subtitle {
+  font-family: var(--font-tech);
+  font-size: clamp(0.95rem, 1.6vw, 1.18rem);
+  font-weight: 600;
+  color: var(--cyan-bright);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dossier-subtitle::after {
+  content: "";
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background-color: var(--border-cyan);
+}
+
+.dossier-sub-tagline {
+  font-family: var(--font-meta);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  line-height: 1.4;
+}
+
+/* Concise Introduction Statement */
+.dossier-intro {
+  font-family: var(--font-display);
+  font-size: clamp(0.92rem, 1.1vw, 1rem);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin-bottom: 18px;
+}
+
+.dossier-intro strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* RIGHT COLUMN: Engineering Schematic Enclosure */
+.schematic-col {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.schematic-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: rgba(9, 19, 41, 0.85);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  font-family: var(--font-meta);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--cyan);
+  text-transform: uppercase;
+}
+
+.schematic-canvas-box {
+  position: relative;
+  border: 1px dashed var(--border-cyan);
+  background-color: rgba(16, 31, 59, 0.45);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(9, 19, 41, 0.65);
+}
+
+@media (min-width: 640px) {
+  .schematic-canvas-box {
+    padding: 24px 20px;
+  }
+}
+
+.schematic-svg-wrap {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.schematic-svg-wrap svg {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  display: block;
+}
+
+/* Schematic Dimension Markers & Scale Footer */
+.schematic-scale-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(41, 69, 99, 0.5);
+  font-family: var(--font-meta);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.scale-badge {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--cyan);
+}
+
+.scale-badge::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--cyan);
+}
+
+/* Node Hover Telemetry Banner */
+.node-telemetry-banner {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background-color: rgba(9, 19, 41, 0.9);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--cyan);
+  font-family: var(--font-tech);
+  font-size: 11px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 42px;
+  transition: all var(--trans-fast);
+}
+
+.telemetry-node-name {
+  color: var(--cyan-bright);
+  font-weight: 600;
+}
+
+.telemetry-node-status {
+  color: var(--success);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+/* SVG Interactive Hover Styling */
+.schematic-node {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.schematic-node:hover rect,
+.schematic-node:focus rect {
+  stroke: var(--cyan-bright) !important;
+  stroke-width: 2px !important;
+  fill: #162a50 !important;
+  filter: drop-shadow(0 0 8px rgba(66, 204, 245, 0.45));
+}
+
+.schematic-node:hover text,
+.schematic-node:focus text {
+  fill: #ffffff !important;
+}
+
+.bus-line {
+  stroke: var(--cyan);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 3;
+  animation: busPulse 12s linear infinite;
+}
+
+@keyframes busPulse {
+  to {
+    stroke-dashoffset: -90;
+  }
+}

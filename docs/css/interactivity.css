@@ -1,0 +1,515 @@
+/**
+ * BLUEPRINT / FORGE RUNTIME — ADVANCED INTERACTIVITY STYLES (PHASE 3)
+ * Specification: BLUEPRINT_MASTER_PROMPT.md
+ */
+
+/* ==========================================================================
+   GLOBAL INTERACTION & FOCUS PRIMITIVES
+   ========================================================================== */
+
+:focus-visible {
+  outline: 2px solid var(--cyan) !important;
+  outline-offset: 2px !important;
+}
+
+button, [role="button"], select, input, textarea {
+  transition: all var(--trans-fast);
+}
+
+/* ==========================================================================
+   SHEET 04: PROJECT EXPLORER CONTROLS & MODAL
+   ========================================================================== */
+
+.explorer-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 14px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: var(--navy-glass);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+}
+
+.explorer-search-wrap {
+  flex: 1 1 240px;
+  position: relative;
+}
+
+.explorer-search-input {
+  width: 100%;
+  background: var(--navy-surface);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  color: var(--text-primary);
+  font-family: var(--font-tech);
+  font-size: 0.8rem;
+  outline: none;
+}
+
+.explorer-search-input:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 8px rgba(66, 204, 245, 0.2);
+}
+
+.explorer-filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.filter-chip-btn {
+  background: var(--navy-surface);
+  border: 1px solid var(--border-grid);
+  color: var(--text-secondary);
+  font-family: var(--font-tech);
+  font-size: 0.72rem;
+  padding: 5px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.filter-chip-btn:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.filter-chip-btn.active {
+  background: rgba(66, 204, 245, 0.15);
+  border-color: var(--cyan);
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.filter-count-badge {
+  font-family: var(--font-tech);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+/* Project Card Hover & Interactive State */
+.project-card.interactive-card {
+  cursor: pointer;
+  transition: transform var(--trans-fast), border-color var(--trans-fast), box-shadow var(--trans-fast);
+}
+
+.project-card.interactive-card:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 4px 14px rgba(66, 204, 245, 0.12);
+  transform: translateY(-2px);
+}
+
+.project-card.hidden-by-filter {
+  display: none !important;
+}
+
+/* Project Architecture Modal */
+.cad-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 14, 26, 0.85);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.cad-modal-backdrop.open {
+  display: flex;
+}
+
+.cad-modal-window {
+  background: var(--bg-card);
+  border: 1px solid var(--cyan);
+  border-radius: var(--radius-sm);
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(66, 204, 245, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.cad-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: var(--navy-surface);
+  border-bottom: 1px solid var(--border-grid);
+}
+
+.cad-modal-close-btn {
+  background: transparent;
+  border: 1px solid var(--border-grid);
+  color: var(--text-muted);
+  font-family: var(--font-tech);
+  font-size: 1rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.cad-modal-close-btn:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.cad-modal-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ==========================================================================
+   SHEET 05: GITHUB TELEMETRY INSPECTION DRAWER
+   ========================================================================== */
+
+.metric-stat-box.interactive-metric {
+  cursor: pointer;
+  position: relative;
+  transition: all var(--trans-fast);
+}
+
+.metric-stat-box.interactive-metric:hover,
+.metric-stat-box.interactive-metric.active-metric {
+  border-color: var(--cyan);
+  background: rgba(66, 204, 245, 0.08);
+  box-shadow: 0 0 10px rgba(66, 204, 245, 0.15);
+}
+
+.telemetry-inspector-card {
+  margin-top: 14px;
+  margin-bottom: 14px;
+  background: var(--navy-glass);
+  border: 1px solid var(--cyan);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  position: relative;
+}
+
+.telemetry-inspector-title {
+  font-family: var(--font-tech);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   SHEET 06: CONTRIBUTION HEATMAP INSPECTOR & REPO FILTER
+   ========================================================================== */
+
+.heatmap-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.heatmap-cell-inspector {
+  margin-top: 12px;
+  background: var(--navy-surface);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-tech);
+  font-size: 0.78rem;
+}
+
+.cad-heatmap-svg rect {
+  cursor: pointer;
+  transition: transform var(--trans-fast), stroke var(--trans-fast);
+}
+
+.cad-heatmap-svg rect:hover,
+.cad-heatmap-svg rect:focus-visible {
+  stroke: #EDF3FF;
+  stroke-width: 1px;
+}
+
+/* ==========================================================================
+   SHEET 07: EXPANDABLE RESEARCH DOSSIERS
+   ========================================================================== */
+
+.dossier-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--border-cyan);
+  color: var(--cyan);
+  font-family: var(--font-tech);
+  font-size: 0.74rem;
+  padding: 5px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.dossier-toggle-btn:hover {
+  background: rgba(66, 204, 245, 0.1);
+}
+
+.dossier-expanded-content {
+  display: none;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(41, 69, 99, 0.4);
+  font-family: var(--font-meta);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.dossier-expanded-content.open {
+  display: block;
+}
+
+/* ==========================================================================
+   SHEET 08: SYSTEM ARCHITECTURE INTERACTIVE NODES & HIGHLIGHTS
+   ========================================================================== */
+
+.arch-node-interactive {
+  cursor: pointer;
+}
+
+.arch-node-interactive rect {
+  transition: all var(--trans-fast);
+}
+
+.arch-node-interactive:hover rect,
+.arch-node-interactive:focus-visible rect,
+.arch-node-interactive.active-node rect {
+  fill: #1C355E !important;
+  stroke: var(--cyan) !important;
+  filter: drop-shadow(0 0 6px rgba(66, 204, 245, 0.4));
+}
+
+.system-arch-inspector-panel {
+  margin-top: 14px;
+  background: var(--navy-glass);
+  border: 1px solid var(--border-cyan);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   SHEET 09: ROADMAP MILESTONES INTERACTION
+   ========================================================================== */
+
+.roadmap-item.interactive-milestone {
+  cursor: pointer;
+  transition: background var(--trans-fast), padding-left var(--trans-fast);
+  padding: 8px;
+  border-radius: 2px;
+}
+
+.roadmap-item.interactive-milestone:hover,
+.roadmap-item.interactive-milestone:focus-visible,
+.roadmap-item.interactive-milestone.active-milestone {
+  background: rgba(66, 204, 245, 0.08);
+  padding-left: 12px;
+}
+
+.roadmap-inspector-panel {
+  margin-top: 16px;
+  background: var(--navy-glass);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  font-family: var(--font-tech);
+}
+
+/* ==========================================================================
+   SHEET 10: LOGBOOK CONTROLS
+   ========================================================================== */
+
+.logbook-controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 14px;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  background: var(--navy-glass);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+}
+
+.log-search-input {
+  flex: 1 1 200px;
+  background: var(--navy-surface);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  padding: 7px 12px;
+  color: var(--text-primary);
+  font-family: var(--font-tech);
+  font-size: 0.78rem;
+  outline: none;
+}
+
+.log-search-input:focus {
+  border-color: var(--cyan);
+}
+
+.log-control-btn {
+  background: var(--navy-surface);
+  border: 1px solid var(--border-grid);
+  color: var(--text-secondary);
+  font-family: var(--font-tech);
+  font-size: 0.74rem;
+  padding: 6px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.log-control-btn:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+/* ==========================================================================
+   SHEET 11: COPY-TO-CLIPBOARD & TERMINAL FEEDBACK
+   ========================================================================== */
+
+.clipboard-copy-btn {
+  background: transparent;
+  border: 1px solid var(--border-cyan);
+  color: var(--cyan);
+  font-family: var(--font-tech);
+  font-size: 0.7rem;
+  padding: 2px 7px;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: all var(--trans-fast);
+}
+
+.clipboard-copy-btn:hover {
+  background: var(--cyan);
+  color: var(--navy-deep);
+}
+
+.terminal-stdout-box {
+  margin-top: 12px;
+  background: #08101E;
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-family: var(--font-tech);
+  font-size: 0.74rem;
+  color: var(--status-synced);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+/* ==========================================================================
+   SHEET 12: ACTIVE INDEX ROW HIGHLIGHT
+   ========================================================================== */
+
+.master-index-table tr.active-index-row td {
+  background: rgba(66, 204, 245, 0.08) !important;
+  color: var(--text-primary) !important;
+  border-bottom: 1px solid var(--cyan) !important;
+}
+
+.master-index-table tr.active-index-row td:first-child {
+  border-left: 3px solid var(--cyan);
+}
+
+/* ==========================================================================
+   PHASE 4: PUBLIC GITHUB DATA PROVENANCE & FRESHNESS TELEMETRY STYLES
+   ========================================================================== */
+
+.provenance-telemetry-panel {
+  border-color: var(--border-cyan) !important;
+  background: var(--navy-glass) !important;
+  margin-top: 14px;
+}
+
+.manifest-status-badge.stale {
+  background: rgba(245, 158, 11, 0.12);
+  color: #F59E0B;
+  border: 1px solid #F59E0B;
+}
+
+.manifest-status-badge.offline {
+  background: rgba(148, 163, 184, 0.12);
+  color: #94A3B8;
+  border: 1px solid #94A3B8;
+}
+
+.quota-meter-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  vertical-align: middle;
+}
+
+.quota-meter-bar {
+  display: inline-block;
+  width: 90px;
+  height: 6px;
+  background: rgba(41, 69, 99, 0.4);
+  border: 1px solid var(--border-cyan);
+  border-radius: 2px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.quota-meter-fill {
+  height: 100%;
+  background: var(--cyan);
+  transition: width 0.3s ease;
+}
+
+.log-control-btn.cyan {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.log-control-btn.cyan:hover {
+  background: rgba(66, 204, 245, 0.15);
+}
+
+/* ==========================================================================
+   REDUCED MOTION OVERRIDES
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
+}

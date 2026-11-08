@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GitHubContributionsCollectionSchema",
+  "description": "Schema definition for Phase 4 GitHub GraphQL API contributions hydration",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "type": "object",
+      "required": ["user"],
+      "properties": {
+        "user": {
+          "type": "object",
+          "required": ["contributionsCollection"],
+          "properties": {
+            "contributionsCollection": {
+              "type": "object",
+              "required": ["contributionCalendar"],
+              "properties": {
+                "contributionCalendar": {
+                  "type": "object",
+                  "required": ["totalContributions", "weeks"],
+                  "properties": {
+                    "totalContributions": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "description": "Total commits, PRs, issues, and reviews in the 52-week window"
+                    },
+                    "weeks": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": ["contributionDays"],
+                        "properties": {
+                          "contributionDays": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "required": ["contributionCount", "date", "weekday"],
+                              "properties": {
+                                "contributionCount": { "type": "integer", "minimum": 0 },
+                                "date": { "type": "string", "format": "date" },
+                                "weekday": { "type": "integer", "minimum": 0, "maximum": 6 },
+                                "color": { "type": "string" }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "phase4_graphql_query": "query($username: String!) { user(login: $username) { contributionsCollection { contributionCalendar { totalContributions weeks { contributionDays { contributionCount date weekday color } } } } } }",
+  "phase4_target_endpoint": "https://api.github.com/graphql",
+  "ingestion_workflow": ".github/workflows/fetch-telemetry.yml",
+  "audit_status": "SCHEMA_PREPARED // AWAITING_PHASE_4_INGESTION"
+}

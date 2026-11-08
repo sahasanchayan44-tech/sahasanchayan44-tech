@@ -1,0 +1,404 @@
+/* ==========================================================================
+   BLUEPRINT / FORGE RUNTIME — TECHNICAL COMPONENTS
+   Document ID: BP-CSS-COMP-REV01
+   ========================================================================== */
+
+/* Accessibility Utility: Screen Reader Only */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* 1. Technical Document Header */
+.doc-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  gap: 10px 16px;
+  position: relative;
+}
+
+.header-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-tech);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--cyan);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.brand-badge .system-bracket {
+  color: var(--text-muted);
+}
+
+.status-indicator-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.system-status-led {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--success);
+  box-shadow: 0 0 8px var(--success);
+  animation: ledPulse 2.5s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+.system-status-led.local-dev {
+  background-color: var(--warning);
+  box-shadow: 0 0 8px var(--warning);
+}
+
+@keyframes ledPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.9); }
+}
+
+.status-label {
+  font-family: var(--font-meta);
+  font-size: 11px;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.doc-metadata-strip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-meta);
+  font-size: 11px;
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .doc-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  .header-identity {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+  }
+  .brand-badge {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .status-label {
+    font-size: 9.5px;
+  }
+  .doc-metadata-strip {
+    width: 100%;
+    justify-content: space-between;
+    font-size: 9.5px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(41, 69, 99, 0.4);
+    gap: 8px;
+  }
+  .meta-item {
+    font-size: 9.5px;
+  }
+  .sheet-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand-badge {
+    font-size: 9.5px;
+  }
+  .status-label {
+    font-size: 8.5px;
+  }
+  .meta-item {
+    font-size: 8.5px;
+  }
+  .cad-btn {
+    padding: 7px 10px;
+    font-size: 10px;
+    width: 100%;
+  }
+}
+
+.meta-item {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.meta-key {
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.meta-val {
+  color: var(--cyan-bright);
+  font-weight: 500;
+}
+
+.sheet-badge {
+  background-color: rgba(66, 204, 245, 0.12);
+  border: 1px solid var(--border-cyan);
+  padding: 3px 8px;
+  color: var(--cyan-bright);
+  font-family: var(--font-tech);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+/* 2. Technical Annotations */
+.tech-annotation {
+  font-family: var(--font-tech);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  border-left: 2px solid var(--cyan);
+  padding-left: 8px;
+  line-height: 1.4;
+}
+
+/* 3. Dashed Engineering Frames */
+.dashed-frame {
+  border: 1px dashed var(--border-cyan);
+  position: relative;
+  background-color: rgba(16, 31, 59, 0.4);
+  padding: 16px;
+}
+
+.dashed-frame::before {
+  content: attr(data-label);
+  position: absolute;
+  top: -9px;
+  left: 12px;
+  background-color: var(--bg-deep);
+  padding: 0 8px;
+  font-family: var(--font-meta);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--cyan);
+  text-transform: uppercase;
+  border-left: 2px solid var(--cyan);
+}
+
+/* 4. Engineering Properties Grid */
+.props-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 18px;
+  border: 1px solid var(--border);
+  background-color: rgba(9, 19, 41, 0.6);
+  padding: 14px;
+}
+
+.prop-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(41, 69, 99, 0.35);
+  font-family: var(--font-meta);
+  font-size: 12px;
+}
+
+.prop-row:last-child {
+  border-bottom: none;
+}
+
+.prop-name {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+
+.prop-value {
+  color: var(--text-primary);
+  font-family: var(--font-tech);
+  font-weight: 500;
+  text-align: right;
+  word-break: break-word;
+}
+
+.prop-value.cyan {
+  color: var(--cyan);
+}
+
+/* 5. CAD/CAM Technical Buttons */
+.cad-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.cad-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 18px;
+  background-color: transparent;
+  border: 1px solid var(--border-cyan);
+  color: var(--cyan);
+  font-family: var(--font-tech);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--trans-fast);
+  position: relative;
+}
+
+.cad-btn::before,
+.cad-btn::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+}
+
+.cad-btn::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid var(--cyan-bright);
+  border-left: 1px solid var(--cyan-bright);
+}
+
+.cad-btn::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1px solid var(--cyan-bright);
+  border-right: 1px solid var(--cyan-bright);
+}
+
+.cad-btn:hover {
+  background-color: var(--cyan-subtle);
+  border-color: var(--cyan-bright);
+  color: var(--text-primary);
+  box-shadow: 0 0 16px rgba(66, 204, 245, 0.2);
+}
+
+.cad-btn.secondary {
+  border-color: var(--border);
+  color: var(--text-secondary);
+}
+
+.cad-btn.secondary:hover {
+  border-color: var(--border-cyan);
+  color: var(--cyan);
+  background-color: rgba(66, 204, 245, 0.04);
+}
+
+/* 6. Dimension and Scale Indicators */
+.dimension-marker {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-meta);
+  font-size: 9px;
+  color: var(--cyan-dim);
+  letter-spacing: 0.1em;
+  user-select: none;
+}
+
+.dimension-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--cyan-dim);
+  position: relative;
+}
+
+.dimension-line::before,
+.dimension-line::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  width: 1px;
+  height: 7px;
+  background-color: var(--cyan-dim);
+}
+
+.dimension-line::before { left: 0; }
+.dimension-line::after { right: 0; }
+
+.dimension-text {
+  padding: 0 8px;
+}
+
+/* 7. Technical Document Footer */
+.doc-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  background-color: var(--bg-panel);
+  border-top: 1px solid var(--border);
+  font-family: var(--font-meta);
+  font-size: 11px;
+  color: var(--text-secondary);
+  gap: 12px;
+  position: relative;
+}
+
+@media (max-width: 640px) {
+  .doc-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 10px;
+    padding: 10px 12px;
+  }
+}
+
+.footer-stamp {
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--cyan);
+  text-transform: uppercase;
+}

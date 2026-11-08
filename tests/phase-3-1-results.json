@@ -1,0 +1,1190 @@
+{
+  "viewports": [
+    {
+      "viewport": "1920x1080 (Desktop Large)",
+      "width": 1920,
+      "height": 1080,
+      "sheets": [
+        {
+          "sheetId": "sheet-01",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-01",
+            "docScrollWidth": 1920,
+            "docClientWidth": 1920,
+            "winWidth": 1920,
+            "sheetScrollWidth": 1856,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-02",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-02",
+            "docScrollWidth": 1920,
+            "docClientWidth": 1920,
+            "winWidth": 1920,
+            "sheetScrollWidth": 1856,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-03",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-03",
+            "docScrollWidth": 1905,
+            "docClientWidth": 1905,
+            "winWidth": 1920,
+            "sheetScrollWidth": 1841,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-04",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-04",
+            "docScrollWidth": 1905,
+            "docClientWidth": 1905,
+            "winWidth": 1920,
+            "sheetScrollWidth": 1841,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-05",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-05",
+            "docScrollWidth": 1905,
+            "docClientWidth": 1905,
+            "winWidth": 1920,
+            "sheetScrollWidth": 1841,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-06",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-06",
+            "docScrollWidth": 1905,
+            "docClientWidth": 1905,
+            "winWidth": 1920,
+            "sheetScrollWidth": 1841,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-07",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-07",
+            "docScrollWidth": 1905,
+            "docClientWidth": 1905,
+            "winWidth": 1920,
+            "sheetScrollWidth": 1841,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-08",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-08",
+            "docScrollWidth": 1905,
+            "docClientWidth": 1905,
+            "winWidth": 1920,
+            "sheetScrollWidth": 1841,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-09",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-09",
+            "docScrollWidth": 1905,
+            "docClientWidth": 1905,
+            "winWidth": 1920,
+            "sheetScrollWidth": 1841,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-10",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-10",
+            "docScrollWidth": 1920,
+            "docClientWidth": 1920,
+            "winWidth": 1920,
+            "sheetScrollWidth": 1856,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-11",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-11",
+            "docScrollWidth": 1920,
+            "docClientWidth": 1920,
+            "winWidth": 1920,
+            "sheetScrollWidth": 1856,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-12",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-12",
+            "docScrollWidth": 1905,
+            "docClientWidth": 1905,
+            "winWidth": 1920,
+            "sheetScrollWidth": 1841,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        }
+      ]
+    },
+    {
+      "viewport": "1440x900 (Desktop Standard)",
+      "width": 1440,
+      "height": 900,
+      "sheets": [
+        {
+          "sheetId": "sheet-01",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-01",
+            "docScrollWidth": 1425,
+            "docClientWidth": 1425,
+            "winWidth": 1440,
+            "sheetScrollWidth": 1361,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-02",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-02",
+            "docScrollWidth": 1425,
+            "docClientWidth": 1425,
+            "winWidth": 1440,
+            "sheetScrollWidth": 1361,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-03",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-03",
+            "docScrollWidth": 1425,
+            "docClientWidth": 1425,
+            "winWidth": 1440,
+            "sheetScrollWidth": 1361,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-04",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-04",
+            "docScrollWidth": 1425,
+            "docClientWidth": 1425,
+            "winWidth": 1440,
+            "sheetScrollWidth": 1361,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-05",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-05",
+            "docScrollWidth": 1425,
+            "docClientWidth": 1425,
+            "winWidth": 1440,
+            "sheetScrollWidth": 1361,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-06",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-06",
+            "docScrollWidth": 1425,
+            "docClientWidth": 1425,
+            "winWidth": 1440,
+            "sheetScrollWidth": 1361,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-07",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-07",
+            "docScrollWidth": 1425,
+            "docClientWidth": 1425,
+            "winWidth": 1440,
+            "sheetScrollWidth": 1361,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-08",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-08",
+            "docScrollWidth": 1425,
+            "docClientWidth": 1425,
+            "winWidth": 1440,
+            "sheetScrollWidth": 1361,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-09",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-09",
+            "docScrollWidth": 1425,
+            "docClientWidth": 1425,
+            "winWidth": 1440,
+            "sheetScrollWidth": 1361,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-10",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-10",
+            "docScrollWidth": 1425,
+            "docClientWidth": 1425,
+            "winWidth": 1440,
+            "sheetScrollWidth": 1361,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-11",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-11",
+            "docScrollWidth": 1425,
+            "docClientWidth": 1425,
+            "winWidth": 1440,
+            "sheetScrollWidth": 1361,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-12",
+          "passed": true,
+          "hasOverflow": false,
+          "details": {
+            "sheetId": "sheet-12",
+            "docScrollWidth": 1425,
+            "docClientWidth": 1425,
+            "winWidth": 1440,
+            "sheetScrollWidth": 1361,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        }
+      ]
+    },
+    {
+      "viewport": "768x1024 (Tablet Portrait)",
+      "width": 768,
+      "height": 1024,
+      "sheets": [
+        {
+          "sheetId": "sheet-01",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-01",
+            "docScrollWidth": 767,
+            "docClientWidth": 753,
+            "winWidth": 768,
+            "sheetScrollWidth": 717,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-02",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-02",
+            "docScrollWidth": 767,
+            "docClientWidth": 753,
+            "winWidth": 768,
+            "sheetScrollWidth": 717,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-03",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-03",
+            "docScrollWidth": 767,
+            "docClientWidth": 753,
+            "winWidth": 768,
+            "sheetScrollWidth": 717,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-04",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-04",
+            "docScrollWidth": 767,
+            "docClientWidth": 753,
+            "winWidth": 768,
+            "sheetScrollWidth": 717,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-05",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-05",
+            "docScrollWidth": 767,
+            "docClientWidth": 753,
+            "winWidth": 768,
+            "sheetScrollWidth": 717,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-06",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-06",
+            "docScrollWidth": 767,
+            "docClientWidth": 753,
+            "winWidth": 768,
+            "sheetScrollWidth": 717,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-07",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-07",
+            "docScrollWidth": 767,
+            "docClientWidth": 753,
+            "winWidth": 768,
+            "sheetScrollWidth": 717,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-08",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-08",
+            "docScrollWidth": 767,
+            "docClientWidth": 753,
+            "winWidth": 768,
+            "sheetScrollWidth": 717,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-09",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-09",
+            "docScrollWidth": 767,
+            "docClientWidth": 753,
+            "winWidth": 768,
+            "sheetScrollWidth": 717,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-10",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-10",
+            "docScrollWidth": 767,
+            "docClientWidth": 753,
+            "winWidth": 768,
+            "sheetScrollWidth": 717,
+            "navVisible": true,
+            "overflowElementCount": 27,
+            "overflowSamples": [
+              "TABLE.logbook-table",
+              "THEAD",
+              "TR"
+            ]
+          }
+        },
+        {
+          "sheetId": "sheet-11",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-11",
+            "docScrollWidth": 767,
+            "docClientWidth": 753,
+            "winWidth": 768,
+            "sheetScrollWidth": 717,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-12",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-12",
+            "docScrollWidth": 767,
+            "docClientWidth": 753,
+            "winWidth": 768,
+            "sheetScrollWidth": 717,
+            "navVisible": true,
+            "overflowElementCount": 41,
+            "overflowSamples": [
+              "TABLE.master-index-table",
+              "THEAD",
+              "TR"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "viewport": "390x844 (Mobile Modern)",
+      "width": 390,
+      "height": 844,
+      "sheets": [
+        {
+          "sheetId": "sheet-01",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-01",
+            "docScrollWidth": 641,
+            "docClientWidth": 390,
+            "winWidth": 641,
+            "sheetScrollWidth": 354,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-02",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-02",
+            "docScrollWidth": 641,
+            "docClientWidth": 390,
+            "winWidth": 641,
+            "sheetScrollWidth": 354,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-03",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-03",
+            "docScrollWidth": 641,
+            "docClientWidth": 390,
+            "winWidth": 641,
+            "sheetScrollWidth": 354,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-04",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-04",
+            "docScrollWidth": 641,
+            "docClientWidth": 390,
+            "winWidth": 641,
+            "sheetScrollWidth": 354,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-05",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-05",
+            "docScrollWidth": 641,
+            "docClientWidth": 390,
+            "winWidth": 641,
+            "sheetScrollWidth": 354,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-06",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-06",
+            "docScrollWidth": 641,
+            "docClientWidth": 390,
+            "winWidth": 641,
+            "sheetScrollWidth": 461,
+            "navVisible": true,
+            "overflowElementCount": 16,
+            "overflowSamples": [
+              "DIV",
+              "SELECT.filter-chip-btn",
+              "svg.[object SVGAnimatedString]"
+            ]
+          }
+        },
+        {
+          "sheetId": "sheet-07",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-07",
+            "docScrollWidth": 641,
+            "docClientWidth": 390,
+            "winWidth": 641,
+            "sheetScrollWidth": 354,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-08",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-08",
+            "docScrollWidth": 641,
+            "docClientWidth": 390,
+            "winWidth": 641,
+            "sheetScrollWidth": 354,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-09",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-09",
+            "docScrollWidth": 641,
+            "docClientWidth": 390,
+            "winWidth": 641,
+            "sheetScrollWidth": 354,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-10",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-10",
+            "docScrollWidth": 641,
+            "docClientWidth": 390,
+            "winWidth": 641,
+            "sheetScrollWidth": 354,
+            "navVisible": true,
+            "overflowElementCount": 90,
+            "overflowSamples": [
+              "TABLE.logbook-table",
+              "THEAD",
+              "TR"
+            ]
+          }
+        },
+        {
+          "sheetId": "sheet-11",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-11",
+            "docScrollWidth": 641,
+            "docClientWidth": 390,
+            "winWidth": 641,
+            "sheetScrollWidth": 401,
+            "navVisible": true,
+            "overflowElementCount": 32,
+            "overflowSamples": [
+              "DIV.terminal-console-card",
+              "DIV.console-terminal-bar",
+              "SPAN.sheet-id-chip"
+            ]
+          }
+        },
+        {
+          "sheetId": "sheet-12",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-12",
+            "docScrollWidth": 641,
+            "docClientWidth": 390,
+            "winWidth": 641,
+            "sheetScrollWidth": 354,
+            "navVisible": true,
+            "overflowElementCount": 92,
+            "overflowSamples": [
+              "TABLE.master-index-table",
+              "THEAD",
+              "TR"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "viewport": "320x700 (Mobile Compact)",
+      "width": 320,
+      "height": 700,
+      "sheets": [
+        {
+          "sheetId": "sheet-01",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-01",
+            "docScrollWidth": 635,
+            "docClientWidth": 320,
+            "winWidth": 635,
+            "sheetScrollWidth": 296,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-02",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-02",
+            "docScrollWidth": 635,
+            "docClientWidth": 320,
+            "winWidth": 635,
+            "sheetScrollWidth": 296,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-03",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-03",
+            "docScrollWidth": 635,
+            "docClientWidth": 320,
+            "winWidth": 635,
+            "sheetScrollWidth": 296,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-04",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-04",
+            "docScrollWidth": 635,
+            "docClientWidth": 320,
+            "winWidth": 635,
+            "sheetScrollWidth": 296,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-05",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-05",
+            "docScrollWidth": 635,
+            "docClientWidth": 320,
+            "winWidth": 635,
+            "sheetScrollWidth": 296,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-06",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-06",
+            "docScrollWidth": 635,
+            "docClientWidth": 320,
+            "winWidth": 635,
+            "sheetScrollWidth": 461,
+            "navVisible": true,
+            "overflowElementCount": 21,
+            "overflowSamples": [
+              "DIV",
+              "SELECT.filter-chip-btn",
+              "svg.[object SVGAnimatedString]"
+            ]
+          }
+        },
+        {
+          "sheetId": "sheet-07",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-07",
+            "docScrollWidth": 635,
+            "docClientWidth": 320,
+            "winWidth": 635,
+            "sheetScrollWidth": 296,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-08",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-08",
+            "docScrollWidth": 635,
+            "docClientWidth": 320,
+            "winWidth": 635,
+            "sheetScrollWidth": 317,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-09",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-09",
+            "docScrollWidth": 635,
+            "docClientWidth": 320,
+            "winWidth": 635,
+            "sheetScrollWidth": 296,
+            "navVisible": true,
+            "overflowElementCount": 0,
+            "overflowSamples": []
+          }
+        },
+        {
+          "sheetId": "sheet-10",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-10",
+            "docScrollWidth": 635,
+            "docClientWidth": 320,
+            "winWidth": 635,
+            "sheetScrollWidth": 296,
+            "navVisible": true,
+            "overflowElementCount": 96,
+            "overflowSamples": [
+              "TABLE.logbook-table",
+              "THEAD",
+              "TR"
+            ]
+          }
+        },
+        {
+          "sheetId": "sheet-11",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-11",
+            "docScrollWidth": 635,
+            "docClientWidth": 320,
+            "winWidth": 635,
+            "sheetScrollWidth": 401,
+            "navVisible": true,
+            "overflowElementCount": 44,
+            "overflowSamples": [
+              "DIV.terminal-console-card",
+              "DIV.console-terminal-bar",
+              "SPAN.sheet-id-chip"
+            ]
+          }
+        },
+        {
+          "sheetId": "sheet-12",
+          "passed": false,
+          "hasOverflow": true,
+          "details": {
+            "sheetId": "sheet-12",
+            "docScrollWidth": 635,
+            "docClientWidth": 320,
+            "winWidth": 635,
+            "sheetScrollWidth": 296,
+            "navVisible": true,
+            "overflowElementCount": 105,
+            "overflowSamples": [
+              "TABLE.master-index-table",
+              "THEAD",
+              "TR"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "modalAccessibility": {
+    "keyboardOpen": {
+      "cardFocused": true,
+      "modalOpened": true,
+      "closeBtnFocused": true,
+      "activeElementTag": "BUTTON#modal-close-btn"
+    },
+    "escapeDismissal": {
+      "modalClosed": true,
+      "activeElementAfterEscape": "BUTTON#modal-close-btn.cad-modal-close-btn"
+    },
+    "closeBtnDismissal": {
+      "opened": true,
+      "closed": true,
+      "returnedToCard": false,
+      "activeElementAfterClose": "BUTTON#modal-close-btn.cad-modal-close-btn"
+    },
+    "backdropDismissal": {
+      "opened": true,
+      "closed": true
+    },
+    "focusTrapping": {
+      "hasAriaModal": true,
+      "roleDialog": true,
+      "bgCardTabindex": "0",
+      "bgSearchTabindex": null,
+      "focusTrapImplemented": false
+    }
+  },
+  "interactionVerification": {
+    "combinedFilters": {
+      "combinedMatchCount": 1,
+      "matchedTitle": "exam-oracle-ai",
+      "noMatchCount": 0,
+      "resetCount": 9
+    },
+    "multiHistory": {
+      "sequence": "01 -> 04 -> 08 -> 11",
+      "backSteps": [
+        7,
+        3,
+        0
+      ],
+      "forwardSteps": [
+        3,
+        7
+      ],
+      "passed": true
+    },
+    "mobileDropdown": {
+      "activeSheetId": "sheet-07",
+      "navLabel": "SHEET 07 // RESEARCH LABORATORY",
+      "docId": "SAHA-BP-2026-07",
+      "selectAfterNext": "sheet-08",
+      "passed": true
+    },
+    "sheet08Keyboard": {
+      "title": "Ollama & FastAPIs",
+      "isActive": true,
+      "passed": true
+    },
+    "sheet09Milestone": {
+      "title": "Autonomous Robotic Perception & SLAM",
+      "phase": "04 // STRATEGIC LONG-TERM OBJECTIVES [HORIZON]",
+      "status": "STRATEGIC TARGET (Long-term architectural goal)",
+      "passed": true
+    },
+    "sheet10Simultaneous": {
+      "matchCount": 1,
+      "firstRowDate": "2026-03-28T07:37Z",
+      "countBadge": "SHOWING 1 OF 11 RECORDS",
+      "passed": true
+    },
+    "sheet11Clipboard": {
+      "copyVal": "https://github.com/sahasanchayan44-tech",
+      "buttonFeedback": "[ COPY ]",
+      "passed": false
+    }
+  },
+  "dataAuthenticity": {
+    "commitAudit": [
+      {
+        "id": "LOG-01",
+        "date": "2026-11-07",
+        "repo": "sahasanchayan44-tech/BLUEPRINT",
+        "shaText": "LOCAL SPEC",
+        "shaHref": null,
+        "isValid": true,
+        "msg": "Forge Runtime 12-sheet unified engineeri..."
+      },
+      {
+        "id": "LOG-02",
+        "date": "2026-11-01T07:15Z",
+        "repo": "sahasanchayan44-tech/portfolio",
+        "shaText": "3409681 ↗",
+        "shaHref": "https://github.com/sahasanchayan44-tech/portfolio/commit/3409681229af2cf671c54fcc7955d3e1af8acf63",
+        "isValid": true,
+        "msg": "Optimize 3D rendering pipeline and add m..."
+      },
+      {
+        "id": "LOG-03",
+        "date": "2026-07-29T17:16Z",
+        "repo": "sahasanchayan44-tech/exam-oracle-ai",
+        "shaText": "9c56152 ↗",
+        "shaHref": "https://github.com/sahasanchayan44-tech/exam-oracle-ai/commit/9c561526f8b1502ed703f2b88298e779afcdedce",
+        "isValid": true,
+        "msg": "feat(ui): add interactive neural network..."
+      },
+      {
+        "id": "LOG-04",
+        "date": "2026-07-25T20:31Z",
+        "repo": "sahasanchayan44-tech/neuroverse",
+        "shaText": "f150e42 ↗",
+        "shaHref": "https://github.com/sahasanchayan44-tech/neuroverse/commit/f150e4241554a01cc68abd6a062f08178c3e46bd",
+        "isValid": true,
+        "msg": "fix(deps): override three-mesh-bvh to ^0..."
+      },
+      {
+        "id": "LOG-05",
+        "date": "2026-07-16T20:16Z",
+        "repo": "sahasanchayan44-tech/chandrayaan-4.0",
+        "shaText": "a3bf025 ↗",
+        "shaHref": "https://github.com/sahasanchayan44-tech/chandrayaan-4.0/commit/a3bf025810defcca2691bdf82561a1da5bf17a7d",
+        "isValid": true,
+        "msg": "Refactor hopper workspace header breadcr..."
+      },
+      {
+        "id": "LOG-06",
+        "date": "2026-04-05T14:34Z",
+        "repo": "sahasanchayan44-tech/sunapse-android",
+        "shaText": "304876e ↗",
+        "shaHref": "https://github.com/sahasanchayan44-tech/sunapse-android/commit/304876eb8cb12cd27679a4f2fc51b2c443290a52",
+        "isValid": true,
+        "msg": "Synapse 3.8 (Native Kotlin Android mobil..."
+      },
+      {
+        "id": "LOG-07",
+        "date": "2026-03-31T05:53Z",
+        "repo": "sahasanchayan44-tech/admin-panel",
+        "shaText": "34909cc ↗",
+        "shaHref": "https://github.com/sahasanchayan44-tech/admin-panel/commit/34909cc7bad9f016cbc20bfa47d172ddd494c26c",
+        "isValid": true,
+        "msg": "Commit: i made some changes to the files..."
+      },
+      {
+        "id": "LOG-08",
+        "date": "2026-03-28T07:37Z",
+        "repo": "sahasanchayan44-tech/study-manager",
+        "shaText": "854d01a ↗",
+        "shaHref": "https://github.com/sahasanchayan44-tech/study-manager/commit/854d01af05033c552890fc831c6bb3a5a8c6b05d",
+        "isValid": true,
+        "msg": "Commit: change the icon to a coin but ke..."
+      },
+      {
+        "id": "LOG-09",
+        "date": "2026-03-27T04:22Z",
+        "repo": "sahasanchayan44-tech/synapse",
+        "shaText": "119369b ↗",
+        "shaHref": "https://github.com/sahasanchayan44-tech/synapse/commit/119369b68d9880d812f5c8c6f1987c7f8a88d0de",
+        "isValid": true,
+        "msg": "Initial commit: Local developer AI assis..."
+      },
+      {
+        "id": "LOG-10",
+        "date": "2026-03-18T03:04Z",
+        "repo": "sahasanchayan44-tech/aria",
+        "shaText": "17f670e ↗",
+        "shaHref": "https://github.com/sahasanchayan44-tech/aria/commit/17f670e2697e591aaac9b488398d0aa290a1cd69",
+        "isValid": true,
+        "msg": "Initial commit: Add files via upload (Au..."
+      },
+      {
+        "id": "LOG-11",
+        "date": "2026-03-16T00:20Z",
+        "repo": "github.com/sahasanchayan44-tech",
+        "shaText": "ID: 268472249 ↗",
+        "shaHref": "https://api.github.com/users/sahasanchayan44-tech",
+        "isValid": false,
+        "msg": "Authenticated GitHub developer profile i..."
+      }
+    ],
+    "allCommitsValid": false,
+    "heatmapExplicitlyStatic": true,
+    "bannerText": "[ STATIC PREVIEW — NOT LIVE CONTRIBUTION DATA ]\n              52-WEEK COMMIT HEA...",
+    "noFalseLiveClaim": true,
+    "labBadges": [
+      "EXPERIMENTAL CONCEPT",
+      "DOCUMENTED PROTOTYPE",
+      "DOCUMENTED PROJECT",
+      "ACTIVE INTEREST"
+    ],
+    "labTiersMatch": true,
+    "docSubtitle": "SOFTWARE DEVELOPER // SYSTEMS & AI BUILDER",
+    "verifiedTitle": true,
+    "statusLabel": "LOCAL PREVIEW // RUNTIME DEV",
+    "honestStatus": true,
+    "allPassed": false
+  },
+  "regression": {
+    "hasDocHeader": true,
+    "hasEngineeringFrame": true,
+    "hasSchematicSvg": true,
+    "hasTelemetryBanner": true,
+    "actionButtons": 3,
+    "allIdsMatch": true,
+    "tabBtnCount": 12,
+    "mobileOptionCount": 12,
+    "sheet01VisualIntact": true,
+    "navigationIntact": true
+  },
+  "consoleErrors": []
+}

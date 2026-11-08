@@ -1,0 +1,116 @@
+{
+  "timestamp": "2026-11-07T21:43:21.183Z",
+  "total": 18,
+  "passed": 18,
+  "failed": 0,
+  "results": [
+    {
+      "category": "R1-MOBILE-390",
+      "testName": "Coordinate Margins Hide Secondary Spans at 390px",
+      "passed": true,
+      "details": "Top Primary: \"[COORD // X: 001 - Y: 040]\", Bottom Primary: \"[END OF SHEET 01 / 12]\""
+    },
+    {
+      "category": "R1-MOBILE-320",
+      "testName": "Coordinate Margins Hide Secondary Spans at 320px",
+      "passed": true,
+      "details": "Confirmed at ultracompact 320px viewport"
+    },
+    {
+      "category": "R1-DESKTOP-1440",
+      "testName": "Desktop Coordinate Margins Preserve All Spans at 1440px",
+      "passed": true,
+      "details": "All 3 top and 3 bottom spans visible"
+    },
+    {
+      "category": "R2-OVERFLOW-390",
+      "testName": "All 12 Sheets Zero Document Canvas Horizontal Overflow at 390px",
+      "passed": true,
+      "details": "Max overflow: 0px across all sheets"
+    },
+    {
+      "category": "R2-OVERFLOW-320",
+      "testName": "All 12 Sheets Zero Document Canvas Horizontal Overflow at 320px",
+      "passed": true,
+      "details": "Max overflow: 0px across all 12 sheets at 320px"
+    },
+    {
+      "category": "R2-HEATMAP-CONTAINMENT",
+      "testName": "Sheet 06 Heatmap Contained Locally Without Document Spill",
+      "passed": true,
+      "details": "Frame contained: true, Scrollable: true, Preserved SVG: 680px"
+    },
+    {
+      "category": "R2-LOGBOOK-CONTAINMENT",
+      "testName": "Sheet 10 Logbook Table Contained Locally Without Document Spill",
+      "passed": true,
+      "details": "Wrap contained: true, Scrollable: true, Preserved Table: 761.171875px"
+    },
+    {
+      "category": "R2-INDEX-CONTAINMENT",
+      "testName": "Sheet 12 Master Index Contained Locally Without Document Spill",
+      "passed": true,
+      "details": "Wrap contained: true, Scrollable: true, Preserved Table: 780px"
+    },
+    {
+      "category": "R3-MODAL-SEMANTICS",
+      "testName": "Modal Dialog Complete WAI-ARIA Semantics",
+      "passed": true,
+      "details": "role=\"dialog\", aria-modal=\"true\", labelledby=\"modal-repo-title\", describedby=\"modal-repo-desc\""
+    },
+    {
+      "category": "R3-FOCUS-ENTRY",
+      "testName": "Keyboard Enter Opens Modal & Moves Focus to Close Button",
+      "passed": true,
+      "details": "Modal open: true, Active element: #modal-close-btn"
+    },
+    {
+      "category": "R3-FOCUS-TRAP-TAB",
+      "testName": "Tab Cycles Forward and Wraps from Last Element to First Element",
+      "passed": true,
+      "details": "Wrapped from #modal-repo-link to #modal-close-btn"
+    },
+    {
+      "category": "R3-FOCUS-TRAP-SHIFTTAB",
+      "testName": "Shift+Tab Cycles Backward and Wraps from First Element to Last Element",
+      "passed": true,
+      "details": "Wrapped backwards from #modal-close-btn to #modal-repo-link"
+    },
+    {
+      "category": "R3-BG-NAV-GUARD",
+      "testName": "Background Sheet Navigation Prevented While Modal Is Active",
+      "passed": true,
+      "details": "Sheet maintained at 3 (no background navigation)"
+    },
+    {
+      "category": "R3-ESCAPE-AND-RESTORE",
+      "testName": "Escape Key Dismisses Modal and Cleanly Restores Focus to Originating Card",
+      "passed": true,
+      "details": "Modal closed: true, Focus restored: true (ARTICLE.project-card interactive-card)"
+    },
+    {
+      "category": "R3-SAFEGUARD-FOCUS",
+      "testName": "Safe Focus Guard Prevents Crashes on Missing/Unmounted Trigger Elements",
+      "passed": true,
+      "details": "No runtime exceptions on orphan close call"
+    },
+    {
+      "category": "TYPO-BOUNDING-BOX-DESKTOP",
+      "testName": "Desktop Headings (Sheets 02-12) Bounding Box Strictly Contained & Sized to Normal Scale",
+      "passed": true,
+      "details": "All 11 sheets contained within parent h2 (H: 30px, 0 plain text nodes)"
+    },
+    {
+      "category": "TYPO-BOUNDING-BOX-MOBILE",
+      "testName": "Mobile Headings (Sheets 02-12) Bounding Box Strictly Contained Within Mobile Canvas",
+      "passed": true,
+      "details": "All 11 sheets contained within mobile viewport (SVG width: 326px, H: 12px)"
+    },
+    {
+      "category": "CONSOLE-HEALTH",
+      "testName": "Zero Uncaught Runtime Errors Across Remediation Tests",
+      "passed": true,
+      "details": "Clean browser log"
+    }
+  ]
+}

@@ -1,0 +1,377 @@
+/**
+ * BLUEPRINT / FORGE RUNTIME — BATCH C STYLES (SHEETS 09-12)
+ * Sheet 09: Learning Roadmap
+ * Sheet 10: Engineering Logbook
+ * Sheet 11: Contact & Connections
+ * Sheet 12: Document Index
+ */
+
+/* ==========================================================================
+   SHEET 09: LEARNING ROADMAP
+   ========================================================================== */
+
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 14px;
+}
+
+@media (max-width: 900px) {
+  .roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.roadmap-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.roadmap-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--border-cyan);
+}
+
+.roadmap-card.active-phase::before {
+  background: var(--cyan);
+}
+
+.roadmap-card.completed-phase::before {
+  background: var(--status-synced);
+}
+
+.roadmap-card.strategic-phase::before {
+  background: var(--accent-amber);
+}
+
+.roadmap-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(41, 69, 99, 0.4);
+}
+
+.roadmap-item:last-child {
+  border-bottom: none;
+}
+
+.roadmap-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-tech);
+  font-size: 0.82rem;
+}
+
+.roadmap-title {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.roadmap-desc {
+  font-family: var(--font-meta);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   SHEET 10: ENGINEERING LOGBOOK
+   ========================================================================== */
+
+.logbook-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  margin-top: 14px;
+  background: var(--bg-card);
+}
+
+.logbook-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-tech);
+  font-size: 0.8rem;
+  min-width: 720px;
+}
+
+.logbook-table th {
+  background: var(--navy-surface);
+  color: var(--cyan);
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-cyan);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 0.76rem;
+}
+
+.logbook-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(41, 69, 99, 0.3);
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+
+.logbook-table tr:hover td {
+  background: rgba(66, 204, 245, 0.03);
+  color: var(--text-primary);
+}
+
+.log-id-badge {
+  font-family: var(--font-tech);
+  font-weight: 700;
+  color: var(--cyan);
+  background: rgba(66, 204, 245, 0.08);
+  border: 1px solid var(--border-cyan);
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 0.72rem;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   SHEET 11: CONTACT & CONNECTIONS
+   ========================================================================== */
+
+.contact-layout-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+@media (max-width: 900px) {
+  .contact-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.terminal-console-card {
+  background: var(--navy-glass);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  font-family: var(--font-tech);
+}
+
+.console-terminal-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-grid);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.terminal-dot-group {
+  display: flex;
+  gap: 6px;
+}
+
+.term-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--border-cyan);
+}
+
+.term-dot.dot-cyan { background: var(--cyan); }
+.term-dot.dot-green { background: var(--status-synced); }
+.term-dot.dot-amber { background: var(--accent-amber); }
+
+.comms-link-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: var(--navy-surface);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+  transition: border-color var(--trans-fast);
+}
+
+.comms-link-row:hover {
+  border-color: var(--cyan);
+}
+
+.comms-protocol-tag {
+  font-size: 0.72rem;
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.comms-address-val {
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.comms-address-val:hover {
+  color: var(--cyan);
+}
+
+.contact-form-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-input-field {
+  width: 100%;
+  background: var(--navy-surface);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  color: var(--text-primary);
+  font-family: var(--font-tech);
+  font-size: 0.84rem;
+  outline: none;
+  transition: border-color var(--trans-fast);
+}
+
+.contact-input-field:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 6px rgba(66, 204, 245, 0.2);
+}
+
+/* ==========================================================================
+   SHEET 12: MASTER DOCUMENT INDEX & ARCHITECTURAL REGISTRY
+   ========================================================================== */
+
+.master-index-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  margin-top: 14px;
+  background: var(--bg-card);
+}
+
+.master-index-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-tech);
+  font-size: 0.8rem;
+  min-width: 780px;
+}
+
+.master-index-table th {
+  background: var(--navy-surface);
+  color: var(--cyan);
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-cyan);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 0.76rem;
+}
+
+.master-index-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(41, 69, 99, 0.3);
+  color: var(--text-secondary);
+  vertical-align: middle;
+}
+
+.master-index-table tr:hover td {
+  background: rgba(66, 204, 245, 0.03);
+}
+
+.manifest-status-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: 1px solid var(--border-cyan);
+  color: var(--cyan);
+  background: rgba(66, 204, 245, 0.08);
+}
+
+.manifest-status-badge.verified {
+  color: var(--status-synced);
+  border-color: var(--status-synced);
+  background: rgba(99, 217, 161, 0.08);
+}
+
+.manifest-status-badge.target {
+  color: var(--accent-amber);
+  border-color: var(--accent-amber);
+  background: rgba(245, 166, 35, 0.08);
+}
+
+.index-jump-btn {
+  background: transparent;
+  border: 1px solid var(--border-cyan);
+  color: var(--cyan);
+  font-family: var(--font-tech);
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all var(--trans-fast);
+}
+
+.index-jump-btn:hover,
+.index-jump-btn:focus-visible {
+  background: var(--cyan);
+  color: var(--navy-deep);
+  outline: none;
+}
+
+.manifest-summary-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+@media (max-width: 800px) {
+  .manifest-summary-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.manifest-stat-box {
+  background: var(--navy-glass);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.manifest-stat-val {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--cyan);
+}
+
+.manifest-stat-lbl {
+  font-family: var(--font-meta);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}

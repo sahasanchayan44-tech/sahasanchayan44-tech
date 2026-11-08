@@ -1,0 +1,411 @@
+{
+  "timestamp": "2026-11-07T21:20:20.468Z",
+  "milestones": [
+    {
+      "log_id": "LOG-01",
+      "verdict": "VERIFIED",
+      "expected": {
+        "log_id": "LOG-01",
+        "sha": "LOCAL SPEC",
+        "repo": "sahasanchayan44-tech/BLUEPRINT",
+        "author": "sahasanchayan44-tech",
+        "status": "ACTIVE LOCAL SPECIFICATION",
+        "type": "LOCAL_WORKSPACE"
+      },
+      "actual": {
+        "log_id": "LOG-01",
+        "timestamp_display": "2026-11-07",
+        "timestamp_iso": "2026-11-07T00:00:00Z",
+        "repository": "sahasanchayan44-tech/BLUEPRINT",
+        "commit_sha": "LOCAL SPEC",
+        "commit_url": null,
+        "author_login": "sahasanchayan44-tech",
+        "message": "Forge Runtime 12-sheet unified engineering dossier specification & CAD layout system",
+        "verification_status": "ACTIVE LOCAL SPECIFICATION"
+      },
+      "details": "Exact SHA: LOCAL SPEC, Repo: sahasanchayan44-tech/BLUEPRINT, Author: sahasanchayan44-tech, Status: ACTIVE LOCAL SPECIFICATION"
+    },
+    {
+      "log_id": "LOG-02",
+      "verdict": "VERIFIED",
+      "expected": {
+        "log_id": "LOG-02",
+        "sha": "3409681",
+        "repo": "sahasanchayan44-tech/portfolio",
+        "author": "sahasanchayan44-tech",
+        "status": "VERIFIED GIT COMMIT",
+        "type": "GIT_COMMIT"
+      },
+      "actual": {
+        "log_id": "LOG-02",
+        "timestamp_display": "2026-11-01T07:15Z",
+        "timestamp_iso": "2026-11-01T07:15:59Z",
+        "repository": "sahasanchayan44-tech/portfolio",
+        "commit_sha": "3409681",
+        "commit_url": "https://github.com/sahasanchayan44-tech/portfolio/commit/3409681229af2cf671c54fcc7955d3e1af8acf63",
+        "author_login": "sahasanchayan44-tech",
+        "message": "Optimize 3D rendering pipeline and add multi-threaded fast server",
+        "verification_status": "VERIFIED GIT COMMIT"
+      },
+      "details": "Exact SHA: 3409681, Repo: sahasanchayan44-tech/portfolio, Author: sahasanchayan44-tech, Status: VERIFIED GIT COMMIT"
+    },
+    {
+      "log_id": "LOG-03",
+      "verdict": "VERIFIED",
+      "expected": {
+        "log_id": "LOG-03",
+        "sha": "9c56152",
+        "repo": "sahasanchayan44-tech/exam-oracle-ai",
+        "author": null,
+        "status": "VERIFIED GIT COMMIT",
+        "type": "GIT_COMMIT"
+      },
+      "actual": {
+        "log_id": "LOG-03",
+        "timestamp_display": "2026-07-29T17:16Z",
+        "timestamp_iso": "2026-07-29T17:16:45Z",
+        "repository": "sahasanchayan44-tech/exam-oracle-ai",
+        "commit_sha": "9c56152",
+        "commit_url": "https://github.com/sahasanchayan44-tech/exam-oracle-ai/commit/9c561526f8b1502ed703f2b88298e779afcdedce",
+        "author_login": null,
+        "message": "feat(ui): add interactive neural network canvas background with dynamic mouse node-edge communication",
+        "verification_status": "VERIFIED GIT COMMIT"
+      },
+      "details": "Exact SHA: 9c56152, Repo: sahasanchayan44-tech/exam-oracle-ai, Author: null (unlinked), Status: VERIFIED GIT COMMIT"
+    },
+    {
+      "log_id": "LOG-04",
+      "verdict": "VERIFIED",
+      "expected": {
+        "log_id": "LOG-04",
+        "sha": "f150e42",
+        "repo": "sahasanchayan44-tech/neuroverse",
+        "author": "sahasanchayan44-tech",
+        "status": "VERIFIED GIT COMMIT",
+        "type": "GIT_COMMIT"
+      },
+      "actual": {
+        "log_id": "LOG-04",
+        "timestamp_display": "2026-07-25T20:31Z",
+        "timestamp_iso": "2026-07-25T20:31:40Z",
+        "repository": "sahasanchayan44-tech/neuroverse",
+        "commit_sha": "f150e42",
+        "commit_url": "https://github.com/sahasanchayan44-tech/neuroverse/commit/f150e4241554a01cc68abd6a062f08178c3e46bd",
+        "author_login": "sahasanchayan44-tech",
+        "message": "fix(deps): override three-mesh-bvh to ^0.8.0 in package.json to resolve deprecation warning",
+        "verification_status": "VERIFIED GIT COMMIT"
+      },
+      "details": "Exact SHA: f150e42, Repo: sahasanchayan44-tech/neuroverse, Author: sahasanchayan44-tech, Status: VERIFIED GIT COMMIT"
+    },
+    {
+      "log_id": "LOG-05",
+      "verdict": "VERIFIED",
+      "expected": {
+        "log_id": "LOG-05",
+        "sha": "a3bf025",
+        "repo": "sahasanchayan44-tech/chandrayaan-4.0",
+        "author": "sahasanchayan44-tech",
+        "status": "VERIFIED GIT COMMIT",
+        "type": "GIT_COMMIT"
+      },
+      "actual": {
+        "log_id": "LOG-05",
+        "timestamp_display": "2026-07-16T20:16Z",
+        "timestamp_iso": "2026-07-16T20:16:32Z",
+        "repository": "sahasanchayan44-tech/chandrayaan-4.0",
+        "commit_sha": "a3bf025",
+        "commit_url": "https://github.com/sahasanchayan44-tech/chandrayaan-4.0/commit/a3bf025810defcca2691bdf82561a1da5bf17a7d",
+        "author_login": "sahasanchayan44-tech",
+        "message": "Refactor hopper workspace header breadcrumbs, tabs, inputs, and action buttons to use native dashboard styling",
+        "verification_status": "VERIFIED GIT COMMIT"
+      },
+      "details": "Exact SHA: a3bf025, Repo: sahasanchayan44-tech/chandrayaan-4.0, Author: sahasanchayan44-tech, Status: VERIFIED GIT COMMIT"
+    },
+    {
+      "log_id": "LOG-06",
+      "verdict": "VERIFIED",
+      "expected": {
+        "log_id": "LOG-06",
+        "sha": "304876e",
+        "repo": "sahasanchayan44-tech/sunapse-android",
+        "author": "sahasanchayan44-tech",
+        "status": "VERIFIED GIT COMMIT",
+        "type": "GIT_COMMIT"
+      },
+      "actual": {
+        "log_id": "LOG-06",
+        "timestamp_display": "2026-04-05T14:34Z",
+        "timestamp_iso": "2026-04-05T14:34:06Z",
+        "repository": "sahasanchayan44-tech/sunapse-android",
+        "commit_sha": "304876e",
+        "commit_url": "https://github.com/sahasanchayan44-tech/sunapse-android/commit/304876eb8cb12cd27679a4f2fc51b2c443290a52",
+        "author_login": "sahasanchayan44-tech",
+        "message": "Synapse 3.8",
+        "verification_status": "VERIFIED GIT COMMIT"
+      },
+      "details": "Exact SHA: 304876e, Repo: sahasanchayan44-tech/sunapse-android, Author: sahasanchayan44-tech, Status: VERIFIED GIT COMMIT"
+    },
+    {
+      "log_id": "LOG-07",
+      "verdict": "VERIFIED",
+      "expected": {
+        "log_id": "LOG-07",
+        "sha": "34909cc",
+        "repo": "sahasanchayan44-tech/admin-panel",
+        "author": "sagarsaurabhssnl",
+        "status": "VERIFIED GIT COMMIT",
+        "type": "GIT_COMMIT"
+      },
+      "actual": {
+        "log_id": "LOG-07",
+        "timestamp_display": "2026-03-31T05:53Z",
+        "timestamp_iso": "2026-03-31T05:53:23Z",
+        "repository": "sahasanchayan44-tech/admin-panel",
+        "commit_sha": "34909cc",
+        "commit_url": "https://github.com/sahasanchayan44-tech/admin-panel/commit/34909cc7bad9f016cbc20bfa47d172ddd494c26c",
+        "author_login": "sagarsaurabhssnl",
+        "message": "i made some changes to the files, make sure to commit the changes",
+        "verification_status": "VERIFIED GIT COMMIT"
+      },
+      "details": "Exact SHA: 34909cc, Repo: sahasanchayan44-tech/admin-panel, Author: sagarsaurabhssnl, Status: VERIFIED GIT COMMIT"
+    },
+    {
+      "log_id": "LOG-08",
+      "verdict": "VERIFIED",
+      "expected": {
+        "log_id": "LOG-08",
+        "sha": "854d01a",
+        "repo": "sahasanchayan44-tech/study-manager",
+        "author": "sahasanchayan44-tech",
+        "status": "VERIFIED GIT COMMIT",
+        "type": "GIT_COMMIT"
+      },
+      "actual": {
+        "log_id": "LOG-08",
+        "timestamp_display": "2026-03-28T07:37Z",
+        "timestamp_iso": "2026-03-28T07:37:39Z",
+        "repository": "sahasanchayan44-tech/study-manager",
+        "commit_sha": "854d01a",
+        "commit_url": "https://github.com/sahasanchayan44-tech/study-manager/commit/854d01af05033c552890fc831c6bb3a5a8c6b05d",
+        "author_login": "sahasanchayan44-tech",
+        "message": "change the icon to a coin but keep the moving facoter and rotating one",
+        "verification_status": "VERIFIED GIT COMMIT"
+      },
+      "details": "Exact SHA: 854d01a, Repo: sahasanchayan44-tech/study-manager, Author: sahasanchayan44-tech, Status: VERIFIED GIT COMMIT"
+    },
+    {
+      "log_id": "LOG-09",
+      "verdict": "VERIFIED",
+      "expected": {
+        "log_id": "LOG-09",
+        "sha": "119369b",
+        "repo": "sahasanchayan44-tech/synapse",
+        "author": "sahasanchayan44-tech",
+        "status": "VERIFIED GIT COMMIT",
+        "type": "GIT_COMMIT"
+      },
+      "actual": {
+        "log_id": "LOG-09",
+        "timestamp_display": "2026-03-27T04:22Z",
+        "timestamp_iso": "2026-03-27T04:22:22Z",
+        "repository": "sahasanchayan44-tech/synapse",
+        "commit_sha": "119369b",
+        "commit_url": "https://github.com/sahasanchayan44-tech/synapse/commit/119369b68d9880d812f5c8c6f1987c7f8a88d0de",
+        "author_login": "sahasanchayan44-tech",
+        "message": "Initial commit",
+        "verification_status": "VERIFIED GIT COMMIT"
+      },
+      "details": "Exact SHA: 119369b, Repo: sahasanchayan44-tech/synapse, Author: sahasanchayan44-tech, Status: VERIFIED GIT COMMIT"
+    },
+    {
+      "log_id": "LOG-10",
+      "verdict": "VERIFIED",
+      "expected": {
+        "log_id": "LOG-10",
+        "sha": "17f670e",
+        "repo": "sahasanchayan44-tech/aria",
+        "author": "sahasanchayan44-tech",
+        "status": "VERIFIED GIT COMMIT",
+        "type": "GIT_COMMIT"
+      },
+      "actual": {
+        "log_id": "LOG-10",
+        "timestamp_display": "2026-03-18T03:04Z",
+        "timestamp_iso": "2026-03-18T03:04:37Z",
+        "repository": "sahasanchayan44-tech/aria",
+        "commit_sha": "17f670e",
+        "commit_url": "https://github.com/sahasanchayan44-tech/aria/commit/17f670e2697e591aaac9b488398d0aa290a1cd69",
+        "author_login": "sahasanchayan44-tech",
+        "message": "Add files via upload",
+        "verification_status": "VERIFIED GIT COMMIT"
+      },
+      "details": "Exact SHA: 17f670e, Repo: sahasanchayan44-tech/aria, Author: sahasanchayan44-tech, Status: VERIFIED GIT COMMIT"
+    },
+    {
+      "log_id": "LOG-11",
+      "verdict": "VERIFIED",
+      "expected": {
+        "log_id": "LOG-11",
+        "sha": "API: 268472249",
+        "repo": "github.com/sahasanchayan44-tech",
+        "author": "sahasanchayan44-tech",
+        "status": "VERIFIED API RECORD",
+        "type": "USER_PROFILE"
+      },
+      "actual": {
+        "log_id": "LOG-11",
+        "timestamp_display": "2026-03-16T00:20Z",
+        "timestamp_iso": "2026-03-16T00:20:48Z",
+        "repository": "github.com/sahasanchayan44-tech",
+        "commit_sha": "API: 268472249",
+        "commit_url": "https://github.com/sahasanchayan44-tech",
+        "author_login": "sahasanchayan44-tech",
+        "message": "Authenticated GitHub developer profile initialized and public repository namespace registered",
+        "verification_status": "VERIFIED API RECORD"
+      },
+      "details": "Exact SHA: API: 268472249, Repo: github.com/sahasanchayan44-tech, Author: sahasanchayan44-tech, Status: VERIFIED API RECORD"
+    }
+  ],
+  "recentCommits": {
+    "total": 38,
+    "uniqueShas": 38,
+    "duplicates": 0,
+    "invalidTimestamps": 0,
+    "invalidUrls": 0,
+    "repoDistribution": {
+      "sahasanchayan44-tech/portfolio": 5,
+      "sahasanchayan44-tech/exam-oracle-ai": 5,
+      "sahasanchayan44-tech/neuroverse": 5,
+      "sahasanchayan44-tech/chandrayaan-4.0": 5,
+      "sahasanchayan44-tech/sunapse-android": 5,
+      "sahasanchayan44-tech/admin-panel": 5,
+      "sahasanchayan44-tech/study-manager": 5,
+      "sahasanchayan44-tech/synapse": 2,
+      "sahasanchayan44-tech/aria": 1
+    },
+    "authorDistribution": {
+      "sahasanchayan44-tech": 29,
+      "null": 6,
+      "sagarsaurabhssnl": 2,
+      "sagar-0016": 1
+    },
+    "passed": true
+  },
+  "schemaValidation": {
+    "draft07Declared": true,
+    "requiredKeysPresent": true,
+    "missingKeys": [],
+    "repositoriesCount": 9,
+    "historicalMilestonesCount": 11,
+    "recentCommitsCount": 38
+  },
+  "privacy": {
+    "jsonEmailCount": 0,
+    "hasTokenPatterns": false,
+    "hasPrivateRepoMarkers": false
+  },
+  "apiQuota": {
+    "snapshotCollectedAt": "2026-11-07T20:14:11.801Z",
+    "snapshotReportedRequests": 22,
+    "snapshotRemaining": 39,
+    "snapshotLimit": 60,
+    "snapshotGatePass": true,
+    "liveRateSnapshot": {
+      "limit": 60,
+      "remaining": 60,
+      "reset": 1794090020,
+      "used": 0
+    },
+    "worstCaseBudget": 33,
+    "safetyThreshold": 35
+  },
+  "failureSafety": {
+    "usesTempFile": true,
+    "usesRenameSync": true,
+    "hasProgrammaticSchemaValidationInScript": true,
+    "hasTempFileUnlinkCleanup": true,
+    "orphanTmpFilesFound": false
+  },
+  "offlineFreshness": {
+    "conditionA": {
+      "status": "LIVE_SNAPSHOT_FRESH",
+      "isFresh": true,
+      "ageHours": 1.1
+    },
+    "conditionB": {
+      "status": "LIVE_SNAPSHOT_STALE",
+      "isStale": true,
+      "ageHours": 48,
+      "badgeText": "[ SOURCE: LOCAL SNAPSHOT // STALE (48H) ]"
+    },
+    "conditionC": {
+      "status": "OFFLINE_FALLBACK",
+      "isOffline": true,
+      "badgeText": "[ SOURCE: STANDALONE AUDITED BASELINE // OFFLINE ]"
+    },
+    "conditionD": {
+      "status": "OFFLINE_FALLBACK",
+      "isOffline": true
+    },
+    "conditionE": {
+      "status": "OFFLINE_FALLBACK",
+      "isOffline": true
+    },
+    "conditionF": {
+      "status": "LIVE_SNAPSHOT_FRESH"
+    }
+  },
+  "sheetIntegration": {
+    "s4Data": {
+      "count": 9,
+      "starCounts": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "s5Data": {
+      "repos": "09",
+      "followers": "00",
+      "following": "02",
+      "stars": "02",
+      "forks": "02",
+      "tag": "[ SOURCE: LOCAL SNAPSHOT // FRESH (<24H) ]"
+    },
+    "s6Data": {
+      "hasStaticBanner": true,
+      "hasGraphqlNotice": true
+    },
+    "s10Data": {
+      "initialRows": 11,
+      "recentRows": 38,
+      "restoredRows": 11
+    },
+    "s12Data": {
+      "badge": "[ SOURCE: LOCAL SNAPSHOT // FRESH (1.1H) ]",
+      "source": "https://api.github.com/users/sahasanchayan44-tech (UNAUTHENTICATED_PUBLIC_REST)",
+      "timestamp": "2026-11-07T20:14:11.801Z",
+      "quota": "39 / 60 Units Remaining (Safety Gate: ≥ 35)"
+    }
+  },
+  "regression": {
+    "viewsTested": 60,
+    "regressionFailures": [],
+    "regressionPass": true,
+    "s1Title": {
+      "width": 530,
+      "height": 58
+    },
+    "allHeadingsPass": true,
+    "modalPass": true,
+    "consoleErrors": [],
+    "consoleErrorPass": true
+  },
+  "verdictSummary": {}
+}
