@@ -86,7 +86,7 @@ jobs:
       - name: Generate GitHub App Token
         id: app_token
         if: steps.git_diff.outputs.has_changes == 'true' && steps.app_creds_check.outputs.has_app_creds == 'true'
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v3
         with:
           app-id: ${{ secrets.TELEMETRY_APP_ID }}
           private-key: ${{ secrets.TELEMETRY_APP_PRIVATE_KEY }}
