@@ -87,10 +87,18 @@ async function runFullDossierAudit() {
   const chrome = spawn('google-chrome', [
     '--headless=new',
     '--no-sandbox',
+    '--disable-dev-shm-usage',
     '--disable-gpu',
+    '--disable-extensions',
+    '--disable-background-networking',
     `--remote-debugging-port=${port}`,
     'http://localhost:8088/index.html'
   ]);
+
+  let chromeStderr = '';
+  if (chrome.stderr) {
+    chrome.stderr.on('data', chunk => chromeStderr += chunk.toString());
+  }
 
   let cdp;
   const results = [];
@@ -103,12 +111,15 @@ async function runFullDossierAudit() {
 
   try {
     let targets = null;
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 30; i++) {
       await sleep(300);
       try {
         targets = await getJson(`http://127.0.0.1:${port}/json`);
         if (targets && targets.length > 0) break;
       } catch (e) {}
+    }
+    if (!targets || targets.length === 0) {
+      throw new Error(`Chrome failed to expose DevTools target on port ${port}. Stderr: ${chromeStderr}`);
     }
     const pageTarget = targets.find(t => t.type === 'page') || targets[0];
     cdp = new CDPClient(pageTarget.webSocketDebuggerUrl);

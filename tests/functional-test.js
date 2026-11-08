@@ -80,10 +80,18 @@ async function runTests() {
   const chrome = spawn('google-chrome', [
     '--headless=new',
     '--no-sandbox',
+    '--disable-dev-shm-usage',
     '--disable-gpu',
+    '--disable-extensions',
+    '--disable-background-networking',
     `--remote-debugging-port=${port}`,
     'http://localhost:8088/index.html'
   ]);
+
+  let chromeStderr = '';
+  if (chrome.stderr) {
+    chrome.stderr.on('data', chunk => chromeStderr += chunk.toString());
+  }
 
   let cdp;
   const results = [];
@@ -97,7 +105,7 @@ async function runTests() {
   try {
     // Wait for Chrome CDP port to open
     let targets = null;
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 30; i++) {
       await sleep(300);
       try {
         targets = await getJson(`http://127.0.0.1:${port}/json`);
@@ -106,7 +114,7 @@ async function runTests() {
     }
 
     if (!targets || targets.length === 0) {
-      throw new Error('Chrome failed to expose DevTools target');
+      throw new Error(`Chrome failed to expose DevTools target on port ${port}. Stderr: ${chromeStderr}`);
     }
 
     const pageTarget = targets.find(t => t.type === 'page') || targets[0];
