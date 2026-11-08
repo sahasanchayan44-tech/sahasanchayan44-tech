@@ -63,11 +63,15 @@ async function runTelemetrySyncTests() {
       const hasDispatch = /workflow_dispatch:/.test(raw);
       const hasConcurrency = /group:\s*github-telemetry-sync/.test(raw) && /cancel-in-progress:\s*false/.test(raw);
       const hasWritePermission = /contents:\s*write/.test(raw);
+      const hasPrPermission = /pull-requests:\s*write/.test(raw);
       parsed = {
         name: hasName ? 'Daily GitHub Telemetry Synchronization' : '',
         on: { schedule: [{ cron: hasCron ? '17 2 * * *' : '' }], workflow_dispatch: hasDispatch },
         concurrency: { group: 'github-telemetry-sync', 'cancel-in-progress': false },
-        permissions: { contents: hasWritePermission ? 'write' : '' }
+        permissions: {
+          contents: hasWritePermission ? 'write' : '',
+          ...(hasPrPermission ? { 'pull-requests': 'write' } : {})
+        }
       };
     }
 
@@ -76,7 +80,7 @@ async function runTelemetrySyncTests() {
     const hasDispatch = Boolean(parsed.on && parsed.on.workflow_dispatch);
     const hasConcurrency = parsed.concurrency && parsed.concurrency.group === 'github-telemetry-sync' && parsed.concurrency['cancel-in-progress'] === false;
     const hasWritePermission = parsed.permissions && parsed.permissions.contents === 'write';
-    const hasMinimalPermissions = Object.keys(parsed.permissions).length === 1;
+    const hasMinimalPermissions = Object.keys(parsed.permissions).every(k => ['contents', 'pull-requests'].includes(k));
 
     const s1Pass = Boolean(hasName && hasCron && hasDispatch && hasConcurrency && hasWritePermission && hasMinimalPermissions);
     record('WF-01', 'Workflow Cron Schedule & Manual Triggers', s1Pass, `Cron: 17 2 * * * (02:17 UTC), dispatch: ${hasDispatch}`);

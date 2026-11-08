@@ -86,7 +86,7 @@ The `test` job executes after `validate` has passed. It initializes a local HTTP
    23 automated tests verifying all 12 sheet DOM containers, forward/backward navigation controls, keyboard navigation, and hash URL routing.
 6. **Multi-Viewport Responsive Suite** ([`tests/responsive-test.js`](./tests/responsive-test.js)):
    5 viewport breakpoints (1920px, 1440px, 768px, 390px, 320px) enforcing zero horizontal document overflow.
-7. **Standalone CDP Browser Suite** ([`scratch/phase-7-1-browser-test.js`](./scratch/phase-7-1-browser-test.js)):
+7. **Standalone CDP Browser Suite** ([`tests/browser-cdp-test.js`](./tests/browser-cdp-test.js)):
    11 tests verifying modal URL hydration, focus trapping, focus restoration, and coordinate-based click navigation.
 
 ---
@@ -136,37 +136,44 @@ GitHub Pages is configured in **legacy branch mode**, publishing directly from b
 
 ## 8. Interaction with Daily Telemetry Automation
 
-The daily telemetry synchronization workflow ([`.github/workflows/github-telemetry-sync.yml`](./.github/workflows/github-telemetry-sync.yml)) operates alongside the CI workflow:
+The daily telemetry synchronization workflow ([`.github/workflows/github-telemetry-sync.yml`](./.github/workflows/github-telemetry-sync.yml)) operates seamlessly with the CI workflow via an automated Pull Request architecture:
 
-- **Isolation of Triggers**:
+- **Schedule & Execution**:
   - `github-telemetry-sync.yml` runs on a scheduled cron (`17 2 * * *` UTC) and manual dispatch.
-  - Commits created by the GitHub Actions bot (`chore(telemetry): ...`) use the default `GITHUB_TOKEN`.
-  - Under GitHub Actions standard behavior, commits pushed by `GITHUB_TOKEN` do not trigger recursive workflow runs, preventing infinite CI loops.
-- **Change Detection Guard**:
-  - The telemetry collector uses `--only-if-changed` and ignores self-commits on the profile repository.
-  - Telemetry snapshots are strictly validated against `docs/data/github-data-schema.json` before being committed.
-  - If a telemetry commit is reviewed or pushed manually, the CI pipeline validates it against the Draft-07 schema and verifies 100% test compatibility.
+  - Generates updated public GitHub telemetry using substantive change detection (`--only-if-changed`).
+  - Telemetry snapshots are strictly validated against `docs/data/github-data-schema.json` before any PR is created.
+  - If no substantive change is detected, the workflow exits with a clean no-op.
+- **Automated Pull Request Pattern**:
+  - When substantive changes exist, the workflow pushes to a dedicated automation branch (`automation/telemetry-sync`) and creates or updates a Pull Request targeting `main`.
+  - Authentication utilizes an installation access token from a dedicated GitHub App (`TELEMETRY_APP_ID` / `TELEMETRY_APP_PRIVATE_KEY`), ensuring the `pull_request` event triggers CI checks without using personal access tokens.
+  - Automatically activates GitHub auto-merge (`gh pr merge --auto --squash --delete-branch`), ensuring the PR merges cleanly the moment all 4 required CI checks pass.
+- **Zero-Bypass Security Invariant**:
+  - The telemetry workflow never pushes directly to `main`.
+  - Automated telemetry PRs undergo the identical 4 CI checks as developer contributions.
+  - GitHub Pages deploys the updated telemetry snapshot post-merge via `main:/docs`.
 
 ---
 
-## 9. Branch Protection Recommendations
+## 9. Branch Protection & Repository Rulesets
 
-To achieve full continuous delivery gating, the following GitHub branch protection rules are recommended for the `main` branch:
+To enforce quality and security gates, the repository uses a modern GitHub Repository Ruleset targeting `refs/heads/main`:
 
-1. **Require a pull request before merging**:
-   - Require at least 1 approval.
-   - Dismiss stale pull request approvals when new commits are pushed.
-2. **Require status checks to pass before merging**:
-   - Require the following CI status checks:
+1. **Restrict deletions**: Prevents deletion of the `main` branch.
+2. **Block force pushes**: Ensures Git commit history remains strictly linear and immutable.
+3. **Require a pull request before merging**:
+   - Zero required approvals (`required_approving_review_count: 0`) for solo-maintainer compatibility.
+   - Requires all review conversation threads to be resolved.
+4. **Require status checks to pass before merging**:
+   - Mandates the four pre-merge CI checks:
      - `Codebase & Document Validation`
-     - `Regression & Browser Test Suites`
      - `Accessibility & Usability Audit`
      - `Security & Credential Hygiene`
-   - Require branches to be up to date before merging.
-3. **Prevent force-pushes**: Ensure historical integrity is immutable.
-4. **Prevent branch deletion**: Safeguard `main` from accidental deletion.
-
-> **Note**: In accordance with project governance policies, branch protection rules require repository administrator action in GitHub repository settings and are not modified automatically.
+     - `Regression & Browser Test Suites`
+   - Excludes `Production Deployment Verification` (which runs strictly post-merge).
+5. **Zero Bypasses**:
+   - No GitHub Actions bypass.
+   - No personal account bypass.
+   - All code (including automated telemetry updates) enters `main` exclusively through validated Pull Requests.
 
 ---
 
