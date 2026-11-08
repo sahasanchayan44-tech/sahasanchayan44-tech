@@ -74,7 +74,7 @@ class CDPClient {
 
 async function runTests() {
   console.log('--- STARTING BLUEPRINT PHASE 1 FUNCTIONAL TEST SUITE ---');
-  
+
   // 1. Launch Chrome Headless with Remote Debugging
   const port = 9333;
   const chrome = spawn('google-chrome', [
@@ -113,7 +113,19 @@ async function runTests() {
     await cdp.ready();
     await cdp.send('Page.enable');
     await cdp.send('Runtime.enable');
-    await sleep(500);
+
+    // Deterministic readiness: wait until document.readyState === 'complete' and DOM is fully mounted
+    for (let i = 0; i < 50; i++) {
+      const isReady = await cdp.evaluate(`(() => {
+        return document.readyState === 'complete' &&
+               document.getElementById('input-mod-01') !== null &&
+               document.getElementById('telemetry-node-name') !== null &&
+               document.getElementById('telemetry-node-status') !== null;
+      })()`);
+      if (isReady) break;
+      await sleep(100);
+    }
+    await sleep(200);
 
     // TEST 1: Page Title and Document Header
     const title = await cdp.evaluate('document.title');
@@ -156,9 +168,15 @@ async function runTests() {
           el.dispatchEvent(new Event('mouseenter'));
         })()
       `);
-      await sleep(50);
-      const activeName = await cdp.evaluate('document.getElementById("telemetry-node-name").textContent');
-      const activeStatus = await cdp.evaluate('document.getElementById("telemetry-node-status").textContent');
+
+      let activeName = '';
+      let activeStatus = '';
+      for (let i = 0; i < 10; i++) {
+        await sleep(40);
+        activeName = await cdp.evaluate('document.getElementById("telemetry-node-name").textContent');
+        activeStatus = await cdp.evaluate('document.getElementById("telemetry-node-status").textContent');
+        if (activeName === node.expectedName) break;
+      }
       record(`Schematic Node [${node.id}] Hover Telemetry`, activeName === node.expectedName, activeStatus);
 
       // Test reset on mouseleave
@@ -168,8 +186,13 @@ async function runTests() {
           el.dispatchEvent(new Event('mouseleave'));
         })()
       `);
-      await sleep(30);
-      const resetStatus = await cdp.evaluate('document.getElementById("telemetry-node-status").textContent');
+
+      let resetStatus = '';
+      for (let i = 0; i < 10; i++) {
+        await sleep(30);
+        resetStatus = await cdp.evaluate('document.getElementById("telemetry-node-status").textContent');
+        if (resetStatus.includes('SELECT NODE')) break;
+      }
       record(`Schematic Node [${node.id}] Reset on Leave`, resetStatus.includes('SELECT NODE'), resetStatus);
     }
 
@@ -180,32 +203,52 @@ async function runTests() {
         first.focus();
       })()
     `);
-    await sleep(50);
-    const focusedName = await cdp.evaluate('document.getElementById("telemetry-node-name").textContent');
+
+    let focusedName = '';
+    for (let i = 0; i < 10; i++) {
+      await sleep(30);
+      focusedName = await cdp.evaluate('document.getElementById("telemetry-node-name").textContent');
+      if (focusedName === 'INPUT 01: SENSORY & TELEMETRY INGESTION') break;
+    }
     record('Keyboard Focus Telemetry', focusedName === 'INPUT 01: SENSORY & TELEMETRY INGESTION', focusedName);
 
     // Test ArrowRight key cycling
     await cdp.evaluate(`
       window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
     `);
-    await sleep(50);
-    const cycledName = await cdp.evaluate('document.getElementById("telemetry-node-name").textContent');
+
+    let cycledName = '';
+    for (let i = 0; i < 10; i++) {
+      await sleep(30);
+      cycledName = await cdp.evaluate('document.getElementById("telemetry-node-name").textContent');
+      if (cycledName === 'INPUT 02: KNOWLEDGE & LOGIC MATRIX') break;
+    }
     record('Keyboard ArrowRight Node Cycling', cycledName === 'INPUT 02: KNOWLEDGE & LOGIC MATRIX', cycledName);
 
     // Test Escape key reset
     await cdp.evaluate(`
       window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
     `);
-    await sleep(50);
-    const escStatus = await cdp.evaluate('document.getElementById("telemetry-node-status").textContent');
+
+    let escStatus = '';
+    for (let i = 0; i < 10; i++) {
+      await sleep(30);
+      escStatus = await cdp.evaluate('document.getElementById("telemetry-node-status").textContent');
+      if (escStatus.includes('SELECT NODE')) break;
+    }
     record('Keyboard Escape Key Reset', escStatus.includes('SELECT NODE'), escStatus);
 
     // TEST 6: Action Button 1 - Inspect Schematic
     await cdp.evaluate(`
       document.getElementById('btn-inspect-schematic').click();
     `);
-    await sleep(100);
-    const inspectActive = await cdp.evaluate('document.getElementById("telemetry-node-name").textContent');
+
+    let inspectActive = '';
+    for (let i = 0; i < 10; i++) {
+      await sleep(30);
+      inspectActive = await cdp.evaluate('document.getElementById("telemetry-node-name").textContent');
+      if (inspectActive === 'CENTRAL FORGE SCHEDULER // KERNEL v0.1') break;
+    }
     record('Action Button [INSPECT SCHEMATIC]', inspectActive === 'CENTRAL FORGE SCHEDULER // KERNEL v0.1', inspectActive);
 
     // TEST 7: Action Button 2 - GitHub Profile Link Attributes
@@ -228,8 +271,13 @@ async function runTests() {
     await cdp.evaluate(`
       document.getElementById('btn-spec-details').click();
     `);
-    await sleep(100);
-    const metricsName = await cdp.evaluate('document.getElementById("telemetry-node-name").textContent');
+
+    let metricsName = '';
+    for (let i = 0; i < 10; i++) {
+      await sleep(30);
+      metricsName = await cdp.evaluate('document.getElementById("telemetry-node-name").textContent');
+      if (metricsName === 'SYSTEM SPECIFICATION PARAMETERS') break;
+    }
     record('Action Button [SPECIFICATION METRICS]', metricsName === 'SYSTEM SPECIFICATION PARAMETERS', metricsName);
 
     // TEST 9: Console Errors Check
