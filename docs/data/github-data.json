@@ -1,22 +1,22 @@
 {
   "provenance": {
-    "collected_at_utc": "2026-11-07T20:14:11.801Z",
+    "collected_at_utc": "2026-11-08T16:00:00.850Z",
     "collector_version": "1.2.0",
     "access_mode": "UNAUTHENTICATED_PUBLIC_REST",
     "primary_source": "https://api.github.com/users/sahasanchayan44-tech",
     "rate_limit_snapshot": {
       "limit": 60,
-      "remaining": 39,
-      "reset_utc": "2026-11-07T21:14:00.000Z",
-      "used": 21
+      "remaining": 17,
+      "reset_utc": "2026-11-08T16:29:35.000Z",
+      "used": 43
     }
   },
   "user": {
     "login": "sahasanchayan44-tech",
     "id": 268472249,
     "created_at": "2026-03-16T00:20:48Z",
-    "updated_at": "2026-07-29T17:11:57Z",
-    "public_repos": 9,
+    "updated_at": "2026-11-08T05:55:14Z",
+    "public_repos": 10,
     "followers": 0,
     "following": 2,
     "public_gists": 0,
@@ -25,7 +25,7 @@
   "telemetry": {
     "total_stars": 2,
     "total_forks": 2,
-    "account_age_days": 236,
+    "account_age_days": 237,
     "primary_ecosystems": [
       "JavaScript",
       "Python",
@@ -33,9 +33,35 @@
       "Kotlin",
       "Shell"
     ],
-    "public_events_90d_count": 2
+    "public_events_90d_count": 3
   },
   "repositories": [
+    {
+      "name": "sahasanchayan44-tech",
+      "project_id": "PRJ-sahasanchayan44-tech",
+      "category": "General",
+      "primary_language": "JavaScript",
+      "languages": {
+        "JavaScript": 282734
+      },
+      "stars": 0,
+      "forks": 0,
+      "default_branch": "main",
+      "created_at": "2026-11-08T04:57:48Z",
+      "updated_at": "2026-11-08T15:59:21Z",
+      "pushed_at": "2026-11-08T15:59:17Z",
+      "repo_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech",
+      "api_description": "Engineering portfolio, interactive technical dossier, and project archive.",
+      "architectural_description": "Public engineering repository registered under GitHub user namespace.",
+      "architecture": "Standard Repository",
+      "key_components": [
+        "Git Repository"
+      ],
+      "provenance": {
+        "metadata_source": "GitHub REST API (v3 public)",
+        "architecture_source": "Audited Codebase Inspection (DATA_INTEGRITY_AUDIT.md)"
+      }
+    },
     {
       "name": "portfolio",
       "project_id": "PRJ-01",
@@ -435,6 +461,46 @@
     }
   ],
   "recent_repository_commits": [
+    {
+      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
+      "commit_sha": "fff95b6",
+      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/fff95b6ac368e7d9863910013a73c74848ba5f4b",
+      "author_login": "sahasanchayan44-tech",
+      "message": "feat(automation): configure daily GitHub telemetry synchronization pipeline",
+      "committed_at": "2026-11-08T15:57:41Z"
+    },
+    {
+      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
+      "commit_sha": "575fb67",
+      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/575fb67684554863149141d117aed2557b145082",
+      "author_login": "sahasanchayan44-tech",
+      "message": "docs: publish BLUEPRINT v1.0.0 engineering case study",
+      "committed_at": "2026-11-08T14:44:07Z"
+    },
+    {
+      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
+      "commit_sha": "54e98ee",
+      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/54e98ee0c97b7e728b375f38b5b3ea35a7606f9f",
+      "author_login": "sahasanchayan44-tech",
+      "message": "test(functional): replace arbitrary sleep timeouts with deterministic DOM readiness polling",
+      "committed_at": "2026-11-08T13:54:54Z"
+    },
+    {
+      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
+      "commit_sha": "e2f0187",
+      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/e2f018728050b3904ddf083efc22f70359acdfd0",
+      "author_login": "sahasanchayan44-tech",
+      "message": "fix(assets): co-locate profile CAD SVGs in docs/assets/profile for GitHub Pages publication",
+      "committed_at": "2026-11-08T10:02:19Z"
+    },
+    {
+      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
+      "commit_sha": "7f95046",
+      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/7f95046d57f1788d70bf2425e6c204e5dd657766",
+      "author_login": "sahasanchayan44-tech",
+      "message": "fix(a11y): update modal repository link fallback",
+      "committed_at": "2026-11-08T09:03:11Z"
+    },
     {
       "repository": "sahasanchayan44-tech/portfolio",
       "commit_sha": "3409681",
