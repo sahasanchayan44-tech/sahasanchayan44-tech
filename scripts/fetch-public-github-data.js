@@ -773,13 +773,22 @@ class GitHubCollector {
       if (nr.primary_language !== er.primary_language) return true;
       if (nr.default_branch !== er.default_branch) return true;
       if (nr.api_description !== er.api_description) return true;
-      if (nr.updated_at !== er.updated_at || nr.pushed_at !== er.pushed_at) return true;
+      if (nr.name !== USERNAME) {
+        if (nr.updated_at !== er.updated_at || nr.pushed_at !== er.pushed_at) return true;
+      }
       if (JSON.stringify(nr.languages) !== JSON.stringify(er.languages)) return true;
     }
 
-    // 4. Compare Recent Commits (shas, dates)
-    const newShas = (newPayload.recent_repository_commits || []).map(c => `${c.repository}@${c.commit_sha}`).join(',');
-    const oldShas = (existingPayload.recent_repository_commits || []).map(c => `${c.repository}@${c.commit_sha}`).join(',');
+    // 4. Compare Recent Commits (ignoring self-authored chore(telemetry) commits)
+    const isTelemetryCommit = (c) => c.message && c.message.startsWith('chore(telemetry):');
+    const newShas = (newPayload.recent_repository_commits || [])
+      .filter(c => !isTelemetryCommit(c))
+      .map(c => `${c.repository}@${c.commit_sha}`)
+      .join(',');
+    const oldShas = (existingPayload.recent_repository_commits || [])
+      .filter(c => !isTelemetryCommit(c))
+      .map(c => `${c.repository}@${c.commit_sha}`)
+      .join(',');
     if (newShas !== oldShas) return true;
 
     // 5. Compare Historical Milestones count
