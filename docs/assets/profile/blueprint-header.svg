@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 280" width="100%" height="auto" role="img" aria-label="SANCHAYAN SAHA — BLUEPRINT FORGE RUNTIME Header">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B1730"/>
+      <stop offset="100%" stop-color="#081022"/>
+    </linearGradient>
+
+    <!-- Engineering Grid Pattern -->
+    <pattern id="engGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(66, 204, 245, 0.05)" stroke-width="1"/>
+      <circle cx="0" cy="0" r="1" fill="rgba(66, 204, 245, 0.15)"/>
+    </pattern>
+  </defs>
+
+  <style>
+    .tech-mono { font-family: 'JetBrains Mono', 'IBM Plex Mono', 'SF Mono', Consolas, monospace; }
+    .cad-dim { fill: #66809F; font-size: 10px; letter-spacing: 1px; }
+    .cad-cyan { fill: #42CCF5; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; }
+    .cad-accent { fill: #A9BEDD; font-size: 11px; letter-spacing: 1px; }
+    .cad-white { fill: #EDF3FF; }
+    .cad-bracket { stroke: #42CCF5; stroke-width: 1.5; fill: none; }
+    .cad-border { stroke: #1B335A; stroke-width: 1; fill: none; }
+  </style>
+
+  <!-- Root Canvas Background -->
+  <rect width="960" height="280" fill="url(#bgGrad)" rx="6"/>
+  <rect width="960" height="280" fill="url(#engGrid)" rx="6"/>
+  <rect x="1" y="1" width="958" height="278" fill="none" stroke="#1B335A" stroke-width="1" rx="5"/>
+
+  <!-- Corner Technical Registration Brackets -->
+  <path d="M 12 24 L 12 12 L 24 12" class="cad-bracket"/>
+  <path d="M 948 24 L 948 12 L 936 12" class="cad-bracket"/>
+  <path d="M 12 256 L 12 268 L 24 268" class="cad-bracket"/>
+  <path d="M 948 256 L 948 268 L 936 268" class="cad-bracket"/>
+
+  <!-- Top Header Metadata Margin -->
+  <text x="24" y="28" class="tech-mono cad-dim">[ COORD // X: 001 - Y: 040 ]</text>
+  <text x="320" y="28" class="tech-mono cad-accent">SPEC: FORGE RUNTIME v0.1 // ARCHITECTURAL DOSSIER</text>
+  <text x="760" y="28" class="tech-mono cad-cyan">DOC ID: SAHA-BP-2026-01</text>
+  <line x1="20" y1="38" x2="940" y2="38" class="cad-border"/>
+
+  <!-- Technical System Tag -->
+  <text x="24" y="66" class="tech-mono cad-cyan" font-size="9px">SPEC.ID: SAHA-BP-2026-01 // SPEC: FORGE RUNTIME // CLASS: SOFTWARE SYSTEMS</text>
+
+  <!-- Main Title: SANCHAYAN SAHA (Custom Indic-Inspired Latin Geometry) -->
+  <g transform="translate(24, 78)" fill="#EDF3FF" fill-rule="evenodd">
+    <!-- SANCHAYAN -->
+    <path class="glyph-S" d="M 22,0 L 56,0 L 56,30 L 38,30 L 38,16 L 18,16 L 18,36 L 44,48 L 56,58 L 56,86 L 42,100 L 0,100 L 0,70 L 16,70 L 16,84 L 38,84 L 38,62 L 12,50 L 0,38 L 0,22 Z" transform="translate(0, 0) scale(0.85)"/>
+    <path class="glyph-A" d="M 18,0 L 36,0 L 44,8 L 62,100 L 44,100 L 39,74 L 23,74 L 18,100 L 0,100 Z M 30,18 L 39,58 L 21,58 Z M 23,74 L 31,64 L 39,74 Z" transform="translate(58, 0) scale(0.85)"/>
+    <path class="glyph-N" d="M 12,0 L 20,0 L 40,70 L 40,0 L 56,0 L 56,88 L 44,100 L 36,100 L 16,30 L 16,100 L 0,100 L 0,12 Z" transform="translate(121, 0) scale(0.85)"/>
+    <path class="glyph-C" d="M 54,18 L 38,0 L 12,0 L 0,12 L 0,88 L 12,100 L 38,100 L 54,82 L 40,72 L 32,84 L 16,84 L 16,16 L 32,16 L 40,28 Z" transform="translate(179, 0) scale(0.85)"/>
+    <path class="glyph-H" d="M 12,0 L 20,0 L 20,44 L 36,44 L 36,0 L 44,0 L 56,12 L 56,88 L 44,100 L 36,100 L 36,60 L 28,52 L 20,60 L 20,100 L 12,100 L 0,88 L 0,12 Z" transform="translate(235, 0) scale(0.85)"/>
+    <path class="glyph-A" d="M 18,0 L 36,0 L 44,8 L 62,100 L 44,100 L 39,74 L 23,74 L 18,100 L 0,100 Z M 30,18 L 39,58 L 21,58 Z M 23,74 L 31,64 L 39,74 Z" transform="translate(293, 0) scale(0.85)"/>
+    <path class="glyph-Y" d="M 12,0 L 24,0 L 30,36 L 46,0 L 58,10 L 40,48 L 40,88 L 30,100 L 18,100 L 18,48 L 0,10 Z" transform="translate(356, 0) scale(0.85)"/>
+    <path class="glyph-A" d="M 18,0 L 36,0 L 44,8 L 62,100 L 44,100 L 39,74 L 23,74 L 18,100 L 0,100 Z M 30,18 L 39,58 L 21,58 Z M 23,74 L 31,64 L 39,74 Z" transform="translate(416, 0) scale(0.85)"/>
+    <path class="glyph-N" d="M 12,0 L 20,0 L 40,70 L 40,0 L 56,0 L 56,88 L 44,100 L 36,100 L 16,30 L 16,100 L 0,100 L 0,12 Z" transform="translate(479, 0) scale(0.85)"/>
+
+    <!-- SAHA -->
+    <path class="glyph-S" d="M 22,0 L 56,0 L 56,30 L 38,30 L 38,16 L 18,16 L 18,36 L 44,48 L 56,58 L 56,86 L 42,100 L 0,100 L 0,70 L 16,70 L 16,84 L 38,84 L 38,62 L 12,50 L 0,38 L 0,22 Z" transform="translate(555, 0) scale(0.85)"/>
+    <path class="glyph-A" d="M 18,0 L 36,0 L 44,8 L 62,100 L 44,100 L 39,74 L 23,74 L 18,100 L 0,100 Z M 30,18 L 39,58 L 21,58 Z M 23,74 L 31,64 L 39,74 Z" transform="translate(613, 0) scale(0.85)"/>
+    <path class="glyph-H" d="M 12,0 L 20,0 L 20,44 L 36,44 L 36,0 L 44,0 L 56,12 L 56,88 L 44,100 L 36,100 L 36,60 L 28,52 L 20,60 L 20,100 L 12,100 L 0,88 L 0,12 Z" transform="translate(676, 0) scale(0.85)"/>
+    <path class="glyph-A" d="M 18,0 L 36,0 L 44,8 L 62,100 L 44,100 L 39,74 L 23,74 L 18,100 L 0,100 Z M 30,18 L 39,58 L 21,58 Z M 23,74 L 31,64 L 39,74 Z" transform="translate(734, 0) scale(0.85)"/>
+  </g>
+
+  <!-- Technical Subtitles -->
+  <text x="24" y="194" class="tech-mono cad-cyan" font-size="14px">SOFTWARE DEVELOPER // SYSTEMS &amp; AI BUILDER</text>
+  <text x="24" y="216" class="tech-mono cad-accent" font-size="11px">// FULL-STACK ENGINEERING // MODULAR ARCHITECTURES // INTELLIGENT TOOLS</text>
+  <text x="24" y="238" class="tech-mono cad-dim" font-size="10px">OPERATING IDENTITY: Sanchayan Saha // GITHUB IDENTITY: sahasanchayan44-tech</text>
+
+  <!-- Bottom Metadata Margin -->
+  <line x1="20" y1="248" x2="940" y2="248" class="cad-border"/>
+  <text x="24" y="264" class="tech-mono cad-dim">[ BLUEPRINT SPECIFICATION PROTOCOL // SHEET 01 OF 12 ]</text>
+  <text x="690" y="264" class="tech-mono cad-cyan" font-size="10px">[ STATUS: ACTIVE SPECIFICATION // PROTOTYPE ]</text>
+</svg>

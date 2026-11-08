@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 140" width="100%" height="auto" role="img" aria-label="BLUEPRINT Repository Telemetry Card">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="metricBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B1730"/>
+      <stop offset="100%" stop-color="#081022"/>
+    </linearGradient>
+
+    <!-- Cell Background Gradient -->
+    <linearGradient id="cellBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0E1E3D"/>
+      <stop offset="100%" stop-color="#0A152B"/>
+    </linearGradient>
+
+    <!-- Engineering Grid Pattern -->
+    <pattern id="metricGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(66, 204, 245, 0.04)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <style>
+    .tech-mono { font-family: 'JetBrains Mono', 'IBM Plex Mono', 'SF Mono', Consolas, monospace; }
+    .cad-dim { fill: #66809F; font-size: 9px; letter-spacing: 1px; }
+    .cad-cyan { fill: #42CCF5; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; }
+    .cad-accent { fill: #A9BEDD; font-size: 9px; letter-spacing: 1px; }
+    .cad-val { fill: #EDF3FF; font-size: 26px; font-weight: 700; letter-spacing: 1.5px; }
+    .cad-val-cyan { fill: #42CCF5; font-size: 26px; font-weight: 700; letter-spacing: 1.5px; }
+    .cad-bracket { stroke: #42CCF5; stroke-width: 1.2; fill: none; }
+    .cad-border { stroke: #1B335A; stroke-width: 1; fill: none; }
+    .cad-cell-border { stroke: #234273; stroke-width: 1; fill: none; }
+  </style>
+
+  <!-- Root Canvas Background -->
+  <rect width="960" height="140" fill="url(#metricBg)" rx="6"/>
+  <rect width="960" height="140" fill="url(#metricGrid)" rx="6"/>
+  <rect x="1" y="1" width="958" height="138" fill="none" stroke="#1B335A" stroke-width="1" rx="5"/>
+
+  <!-- Corner Brackets -->
+  <path d="M 8 16 L 8 8 L 16 8" class="cad-bracket"/>
+  <path d="M 952 16 L 952 8 L 944 8" class="cad-bracket"/>
+  <path d="M 8 124 L 8 132 L 16 132" class="cad-bracket"/>
+  <path d="M 952 124 L 952 132 L 944 132" class="cad-bracket"/>
+
+  <!-- Top Metadata Bar -->
+  <text x="20" y="20" class="tech-mono cad-dim">[ TELEMETRY // VERIFIED SNAPSHOT ]</text>
+  <text x="360" y="20" class="tech-mono cad-cyan">SOURCE: PUBLIC REST API // ZERO AUTH</text>
+  <text x="750" y="20" class="tech-mono cad-accent">INTEGRITY: DRAFT-07 PASS</text>
+  <line x1="16" y1="26" x2="944" y2="26" class="cad-border"/>
+
+  <!-- Cell 1: Public Repositories (x: 20 to 240, w: 220) -->
+  <rect x="20" y="34" width="220" height="92" fill="url(#cellBg)" rx="3"/>
+  <rect x="20" y="34" width="220" height="92" class="cad-cell-border" rx="3"/>
+  <path d="M 24 42 L 24 38 L 28 38" class="cad-bracket"/>
+  <path d="M 236 42 L 236 38 L 232 38" class="cad-bracket"/>
+  <text x="32" y="50" class="tech-mono cad-cyan">REPOSITORIES</text>
+  <text x="32" y="86" class="tech-mono cad-val">09</text>
+  <text x="32" y="112" class="tech-mono cad-dim">VERIFIED PUBLIC REPOS</text>
+
+  <!-- Cell 2: Aggregated Activity / Stars & Forks (x: 252 to 472, w: 220) -->
+  <rect x="252" y="34" width="220" height="92" fill="url(#cellBg)" rx="3"/>
+  <rect x="252" y="34" width="220" height="92" class="cad-cell-border" rx="3"/>
+  <path d="M 256 42 L 256 38 L 260 38" class="cad-bracket"/>
+  <path d="M 468 42 L 468 38 L 464 38" class="cad-bracket"/>
+  <text x="264" y="50" class="tech-mono cad-cyan">ENGAGEMENT</text>
+  <text x="264" y="86" class="tech-mono cad-val-cyan" font-size="20px">02 <tspan font-size="11px" fill="#8EA3C4">STARS</tspan>  02 <tspan font-size="11px" fill="#8EA3C4">FORKS</tspan></text>
+  <text x="264" y="112" class="tech-mono cad-dim">PUBLIC REPUTATION METRICS</text>
+
+  <!-- Cell 3: Primary Ecosystems (x: 484 to 704, w: 220) -->
+  <rect x="484" y="34" width="220" height="92" fill="url(#cellBg)" rx="3"/>
+  <rect x="484" y="34" width="220" height="92" class="cad-cell-border" rx="3"/>
+  <path d="M 488 42 L 488 38 L 492 38" class="cad-bracket"/>
+  <path d="M 700 42 L 700 38 L 696 38" class="cad-bracket"/>
+  <text x="496" y="50" class="tech-mono cad-cyan">PRIMARY ECOSYSTEMS</text>
+  <text x="496" y="86" class="tech-mono cad-val">05</text>
+  <text x="496" y="112" class="tech-mono cad-dim">TS · PY · JS · KT · SH</text>
+
+  <!-- Cell 4: Pipeline Integrity (x: 716 to 940, w: 224) -->
+  <rect x="716" y="34" width="224" height="92" fill="url(#cellBg)" rx="3"/>
+  <rect x="716" y="34" width="224" height="92" class="cad-cell-border" rx="3"/>
+  <path d="M 720 42 L 720 38 L 724 38" class="cad-bracket"/>
+  <path d="M 936 42 L 936 38 L 932 38" class="cad-bracket"/>
+  <text x="728" y="50" class="tech-mono cad-cyan">VALIDATION ENGINE</text>
+  <text x="728" y="86" class="tech-mono cad-val" font-size="20px">DRAFT-07</text>
+  <text x="728" y="112" class="tech-mono cad-dim">ATOMIC SWAP // STRICT SCHEMA</text>
+</svg>
