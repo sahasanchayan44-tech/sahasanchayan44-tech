@@ -86,6 +86,7 @@ async function runFullDossierAudit() {
   const port = 9337;
   const chrome = spawn('google-chrome', [
     '--headless=new',
+    '--no-sandbox',
     '--disable-gpu',
     `--remote-debugging-port=${port}`,
     'http://localhost:8088/index.html'

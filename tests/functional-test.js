@@ -79,6 +79,7 @@ async function runTests() {
   const port = 9333;
   const chrome = spawn('google-chrome', [
     '--headless=new',
+    '--no-sandbox',
     '--disable-gpu',
     `--remote-debugging-port=${port}`,
     'http://localhost:8088/index.html'

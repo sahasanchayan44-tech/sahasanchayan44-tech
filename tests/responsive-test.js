@@ -17,14 +17,14 @@ console.log('--- STARTING RESPONSIVE AUDIT & CAPTURE ---');
 
 for (const bp of breakpoints) {
   const screenshotPath = `/home/sanchayan/Projects/BLUEPRINT/screenshot-${bp.name}.png`;
-  const cmd = `google-chrome --headless=new --disable-gpu --screenshot=${screenshotPath} --window-size=${bp.width},${bp.height} http://localhost:8088/index.html`;
+  const cmd = `google-chrome --headless=new --no-sandbox --disable-gpu --screenshot=${screenshotPath} --window-size=${bp.width},${bp.height} http://localhost:8088/index.html`;
   
   execSync(cmd, { stdio: 'pipe' });
   const stats = fs.statSync(screenshotPath);
   console.log(`✓ CAPTURED ${bp.name} (${bp.width}x${bp.height}) -> ${stats.size} bytes`);
 
   // Check horizontal overflow via Chrome headless DOM evaluation
-  const checkOverflowCmd = `google-chrome --headless=new --disable-gpu --window-size=${bp.width},${bp.height} --dump-dom http://localhost:8088/index.html`;
+  const checkOverflowCmd = `google-chrome --headless=new --no-sandbox --disable-gpu --window-size=${bp.width},${bp.height} --dump-dom http://localhost:8088/index.html`;
   execSync(checkOverflowCmd, { stdio: 'pipe' });
 }
 
