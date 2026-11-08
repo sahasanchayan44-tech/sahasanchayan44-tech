@@ -11,6 +11,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const vm = require('vm');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const WORKFLOWS_DIR = path.join(ROOT_DIR, '.github', 'workflows');
@@ -162,6 +163,85 @@ if (fs.existsSync(dataPath)) {
 
   record('Telemetry Preserves Unauthenticated Public REST Mode', isUnauth && hasRateLimit,
     `Mode: ${data.provenance?.access_mode}, Rate Limit Limit: ${data.provenance?.rate_limit_snapshot?.limit}`);
+}
+
+// -----------------------------------------------------------------------------
+// 5. DOM XSS & DYNAMIC INJECTION RESILIENCE (TD-SEC-01)
+// -----------------------------------------------------------------------------
+console.log('\n--- 5. DOM XSS & DYNAMIC INJECTION RESILIENCE (TD-SEC-01) ---');
+
+const interactivityPath = path.join(ROOT_DIR, 'docs', 'js', 'interactivity.js');
+if (fs.existsSync(interactivityPath)) {
+  const interactivityCode = fs.readFileSync(interactivityPath, 'utf8');
+
+  // Verify safe DOM row construction functions exist and direct template innerHTML interpolation is eliminated
+  const hasSafeConstructors = interactivityCode.includes('function createMilestoneRow') &&
+    interactivityCode.includes('function createCommitRow');
+  const noVulnerableCommitInterpolation = !interactivityCode.includes('tbody.innerHTML = commits.map') &&
+    !interactivityCode.includes('${c.message}');
+
+  record('Logbook Table Safe DOM Construction (TD-SEC-01)', hasSafeConstructors && noVulnerableCommitInterpolation,
+    'createMilestoneRow and createCommitRow use document.createElement and textContent instead of innerHTML interpolation');
+
+  // Verify security utilities are exposed and functioning properly
+  const mockContext = {
+    window: {},
+    document: {
+      addEventListener: () => {},
+      querySelector: () => null,
+      querySelectorAll: () => []
+    }
+  };
+  vm.createContext(mockContext);
+  let vmPassed = false;
+  let escapeHtmlWorks = false;
+  let sanitizeUrlWorks = false;
+
+  try {
+    vm.runInContext(interactivityCode, mockContext);
+    if (mockContext.window && mockContext.window.BlueprintSecurity) {
+      const { escapeHtml, sanitizeUrl } = mockContext.window.BlueprintSecurity;
+
+      // Test escapeHtml
+      const testPayload = '<script>alert("xss")</script>&\'';
+      const escaped = escapeHtml(testPayload);
+      escapeHtmlWorks = !escaped.includes('<') &&
+        !escaped.includes('>') &&
+        escaped.includes('&lt;script&gt;') &&
+        escaped.includes('&quot;') &&
+        escaped.includes('&#39;') &&
+        escaped.includes('&amp;');
+
+      // Test sanitizeUrl
+      const dangerousUrls = [
+        'javascript:alert(1)',
+        'javAsCript:alert(document.cookie)',
+        'data:text/html,<script>alert(1)</script>',
+        'vbscript:msgbox(1)'
+      ];
+      const validUrls = [
+        'https://github.com/sahasanchayan44-tech/sahasanchayan44-tech',
+        'http://localhost:8088/index.html'
+      ];
+
+      const allDangerousBlocked = dangerousUrls.every(u => sanitizeUrl(u) === '#');
+      const allValidAllowed = validUrls.every(u => sanitizeUrl(u) === u);
+      sanitizeUrlWorks = allDangerousBlocked && allValidAllowed;
+
+      vmPassed = true;
+    }
+  } catch (err) {
+    console.error('VM execution failed:', err.message);
+  }
+
+  record('Security Helpers Module Window Export', vmPassed,
+    'window.BlueprintSecurity successfully registered in execution context');
+  record('HTML Escaping Neutralizes Script & Markup Payloads', escapeHtmlWorks,
+    'escapeHtml transforms angle brackets, quotes, and ampersands into HTML entities');
+  record('URL Sanitizer Neutralizes Pseudo-Protocols (javascript:, data:)', sanitizeUrlWorks,
+    'sanitizeUrl rejects non-http(s) URI schemes with safe anchor fallback');
+} else {
+  record('interactivity.js Presence', false, 'docs/js/interactivity.js not found');
 }
 
 // -----------------------------------------------------------------------------

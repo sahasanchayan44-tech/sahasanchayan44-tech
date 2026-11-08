@@ -9,7 +9,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const ARTIFACT_DIR = '/home/sanchayan/.gemini/antigravity-cli/brain/ba104f24-3512-447a-94f4-28ebcde27861';
+const ARTIFACT_DIR = process.env.ARTIFACT_DIR || path.resolve(__dirname, '..', '.artifacts');
 
 async function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));

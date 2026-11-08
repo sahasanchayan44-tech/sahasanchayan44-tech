@@ -113,9 +113,10 @@ async function runAudit() {
     record('Navigation Controller Initialized', hasNav);
 
     // Helper to capture screenshot via CDP
+    const ROOT_DIR = require('path').resolve(__dirname, '..');
     async function capture(filename) {
       const { data } = await cdp.send('Page.captureScreenshot', { format: 'png' });
-      require('fs').writeFileSync(`/home/sanchayan/Projects/BLUEPRINT/${filename}`, Buffer.from(data, 'base64'));
+      require('fs').writeFileSync(require('path').join(ROOT_DIR, filename), Buffer.from(data, 'base64'));
     }
 
     // 2. Navigate to Sheet 02

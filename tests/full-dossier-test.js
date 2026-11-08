@@ -13,6 +13,9 @@
 const { spawn } = require('child_process');
 const http = require('http');
 const fs = require('fs');
+const path = require('path');
+
+const ROOT_DIR = path.resolve(__dirname, '..');
 
 async function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -236,7 +239,7 @@ async function runFullDossierAudit() {
 
       // Capture screenshot of Sheet 01 at this viewport
       const { data } = await cdp.send('Page.captureScreenshot', { format: 'png' });
-      fs.writeFileSync(`/home/sanchayan/Projects/BLUEPRINT/screenshot-${vp.name}.png`, Buffer.from(data, 'base64'));
+      fs.writeFileSync(path.join(ROOT_DIR, `screenshot-${vp.name}.png`), Buffer.from(data, 'base64'));
 
       // Check overflow on complex sheets (04 and 12)
       await cdp.evaluate(`window.BlueprintNavigation.goToSheet(3)`); // Sheet 04

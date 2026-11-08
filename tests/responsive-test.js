@@ -4,6 +4,9 @@
 
 const { execSync } = require('child_process');
 const fs = require('fs');
+const path = require('path');
+
+const ROOT_DIR = path.resolve(__dirname, '..');
 
 const breakpoints = [
   { name: 'desktop-1920', width: 1920, height: 1080 },
@@ -16,7 +19,7 @@ const breakpoints = [
 console.log('--- STARTING RESPONSIVE AUDIT & CAPTURE ---');
 
 for (const bp of breakpoints) {
-  const screenshotPath = `/home/sanchayan/Projects/BLUEPRINT/screenshot-${bp.name}.png`;
+  const screenshotPath = path.join(ROOT_DIR, `screenshot-${bp.name}.png`);
   const cmd = `google-chrome --headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu --screenshot=${screenshotPath} --window-size=${bp.width},${bp.height} http://localhost:8088/index.html`;
   
   execSync(cmd, { stdio: 'pipe' });

@@ -7,6 +7,35 @@
   'use strict';
 
   // ========================================================================
+  // SECURITY & SANITIZATION UTILITIES (TD-SEC-01)
+  // ========================================================================
+
+  function escapeHtml(str) {
+    if (str === null || str === undefined) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function sanitizeUrl(url) {
+    if (!url || typeof url !== 'string') return '';
+    const trimmed = url.trim();
+    if (/^https?:\/\//i.test(trimmed)) {
+      return encodeURI(trimmed);
+    }
+    return '#';
+  }
+
+  // Expose security helpers for verification suites
+  window.BlueprintSecurity = {
+    escapeHtml,
+    sanitizeUrl
+  };
+
+  // ========================================================================
   // 1. SHEET 04: PROJECT EXPLORER (SEARCH, FILTER & MODAL INSPECTOR)
   // ========================================================================
 
@@ -717,37 +746,137 @@
   let cachedHistoricalMilestones = null;
   let cachedRecentCommits = null;
 
+  function createMilestoneRow(m) {
+    const tr = document.createElement('tr');
+
+    const tdId = document.createElement('td');
+    const spanId = document.createElement('span');
+    spanId.className = 'log-id-badge';
+    spanId.textContent = m.log_id || '';
+    tdId.appendChild(spanId);
+    tr.appendChild(tdId);
+
+    const tdTime = document.createElement('td');
+    tdTime.style.color = 'var(--cyan)';
+    tdTime.style.fontFamily = 'var(--font-tech)';
+    tdTime.textContent = m.timestamp_display || '';
+    tr.appendChild(tdTime);
+
+    const tdRepo = document.createElement('td');
+    const strongRepo = document.createElement('strong');
+    strongRepo.textContent = m.repository || '';
+    tdRepo.appendChild(strongRepo);
+    tr.appendChild(tdRepo);
+
+    const tdCommit = document.createElement('td');
+    const safeUrl = sanitizeUrl(m.commit_url);
+    if (safeUrl && safeUrl !== '#') {
+      const a = document.createElement('a');
+      a.href = safeUrl;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.style.color = 'var(--cyan)';
+      a.style.fontFamily = 'var(--font-tech)';
+      a.textContent = `${m.commit_sha || ''} ↗`;
+      tdCommit.appendChild(a);
+    } else {
+      const spanCommit = document.createElement('span');
+      spanCommit.className = 'manifest-status-badge';
+      spanCommit.textContent = m.commit_sha || '';
+      tdCommit.appendChild(spanCommit);
+    }
+    tr.appendChild(tdCommit);
+
+    const tdMsg = document.createElement('td');
+    tdMsg.textContent = m.message || '';
+    tr.appendChild(tdMsg);
+
+    const tdStatus = document.createElement('td');
+    const spanStatus = document.createElement('span');
+    spanStatus.className = 'manifest-status-badge verified';
+    spanStatus.textContent = m.verification_status || '';
+    tdStatus.appendChild(spanStatus);
+    tr.appendChild(tdStatus);
+
+    return tr;
+  }
+
+  function createCommitRow(c) {
+    const tr = document.createElement('tr');
+
+    const tdId = document.createElement('td');
+    const spanId = document.createElement('span');
+    spanId.className = 'log-id-badge';
+    spanId.textContent = 'GIT';
+    tdId.appendChild(spanId);
+    tr.appendChild(tdId);
+
+    const tdTime = document.createElement('td');
+    tdTime.style.color = 'var(--cyan)';
+    tdTime.style.fontFamily = 'var(--font-tech)';
+    tdTime.textContent = c.committed_at ? c.committed_at.slice(0, 10) : '2026';
+    tr.appendChild(tdTime);
+
+    const tdRepo = document.createElement('td');
+    const strongRepo = document.createElement('strong');
+    strongRepo.textContent = c.repository || '';
+    tdRepo.appendChild(strongRepo);
+    tr.appendChild(tdRepo);
+
+    const tdCommit = document.createElement('td');
+    const safeUrl = sanitizeUrl(c.commit_url);
+    if (safeUrl && safeUrl !== '#') {
+      const a = document.createElement('a');
+      a.href = safeUrl;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.style.color = 'var(--cyan)';
+      a.style.fontFamily = 'var(--font-tech)';
+      a.textContent = `${c.commit_sha || ''} ↗`;
+      tdCommit.appendChild(a);
+    } else {
+      tdCommit.textContent = c.commit_sha || '';
+    }
+    tr.appendChild(tdCommit);
+
+    const tdMsg = document.createElement('td');
+    tdMsg.appendChild(document.createTextNode((c.message || '') + ' '));
+    const spanAuthor = document.createElement('span');
+    spanAuthor.style.color = 'var(--text-muted)';
+    spanAuthor.style.fontSize = '0.72rem';
+    spanAuthor.textContent = `[${c.author_login ? 'by ' + c.author_login : 'unlinked'}]`;
+    tdMsg.appendChild(spanAuthor);
+    tr.appendChild(tdMsg);
+
+    const tdStatus = document.createElement('td');
+    const spanStatus = document.createElement('span');
+    spanStatus.className = 'manifest-status-badge verified';
+    spanStatus.textContent = 'LIVE COMMIT';
+    tdStatus.appendChild(spanStatus);
+    tr.appendChild(tdStatus);
+
+    return tr;
+  }
+
   function renderLogbookRows() {
     const tbody = document.querySelector('#sheet-10 .logbook-table tbody');
     if (!tbody) return;
 
+    tbody.innerHTML = '';
+
     if (activeLogDataset === 'MILESTONES') {
       const milestones = cachedHistoricalMilestones || (window.BlueprintDataService ? window.BlueprintDataService.getHistoricalMilestones() : []);
       if (milestones && milestones.length > 0) {
-        tbody.innerHTML = milestones.map(m => `
-          <tr>
-            <td><span class="log-id-badge">${m.log_id}</span></td>
-            <td style="color: var(--cyan); font-family: var(--font-tech);">${m.timestamp_display}</td>
-            <td><strong>${m.repository}</strong></td>
-            <td>${m.commit_url ? `<a href="${m.commit_url}" target="_blank" rel="noopener noreferrer" style="color: var(--cyan); font-family: var(--font-tech);">${m.commit_sha} ↗</a>` : `<span class="manifest-status-badge">${m.commit_sha}</span>`}</td>
-            <td>${m.message}</td>
-            <td><span class="manifest-status-badge verified">${m.verification_status}</span></td>
-          </tr>
-        `).join('');
+        const frag = document.createDocumentFragment();
+        milestones.forEach(m => frag.appendChild(createMilestoneRow(m)));
+        tbody.appendChild(frag);
       }
     } else {
       const commits = cachedRecentCommits || (window.BlueprintDataService ? window.BlueprintDataService.getRecentCommits() : []);
       if (commits && commits.length > 0) {
-        tbody.innerHTML = commits.map(c => `
-          <tr>
-            <td><span class="log-id-badge">GIT</span></td>
-            <td style="color: var(--cyan); font-family: var(--font-tech);">${c.committed_at ? c.committed_at.slice(0, 10) : '2026'}</td>
-            <td><strong>${c.repository}</strong></td>
-            <td><a href="${c.commit_url}" target="_blank" rel="noopener noreferrer" style="color: var(--cyan); font-family: var(--font-tech);">${c.commit_sha} ↗</a></td>
-            <td>${c.message} <span style="color: var(--text-muted); font-size: 0.72rem;">[${c.author_login ? 'by ' + c.author_login : 'unlinked'}]</span></td>
-            <td><span class="manifest-status-badge verified">LIVE COMMIT</span></td>
-          </tr>
-        `).join('');
+        const frag = document.createDocumentFragment();
+        commits.forEach(c => frag.appendChild(createCommitRow(c)));
+        tbody.appendChild(frag);
       }
     }
 

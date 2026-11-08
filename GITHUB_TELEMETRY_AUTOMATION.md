@@ -121,10 +121,11 @@ Before any file is written to `docs/data/github-data.json`, three strict validat
 
 ## 8. SECURITY & PERMISSIONS
 
-- **Minimal Token Scope:** The workflow uses the default GitHub Actions token with minimal permissions:
+- **Minimal Token Scope:** The workflow uses explicit scoped permissions:
   ```yaml
   permissions:
     contents: write
+    pull-requests: write
   ```
 - **Zero Secrets / Tokens in Data:** No personal access tokens or credentials are embedded in scripts or stored in repository data files.
 - **Zero Private Data Ingestion:** All queries target strictly public `/users/` and `/repos/` endpoints. Private repositories and organizations are completely isolated and inaccessible.
@@ -135,6 +136,24 @@ Before any file is written to `docs/data/github-data.json`, three strict validat
     cancel-in-progress: false
   ```
   Prevents simultaneous overlapping synchronization jobs.
+
+---
+
+## 8.1 OPERATIONAL POSTURE & AUTOMATION STATUS MATRIX
+
+To maintain absolute documentation accuracy, the telemetry automation components are categorized by operational readiness:
+
+| Architecture Component | Status | Operational Classification |
+| :--- | :---: | :--- |
+| **Workflow PR & Auto-Merge Pipeline** | `VERIFIED` | Implemented in `.github/workflows/github-telemetry-sync.yml`. Tested in PR #4 (`42522178515`). |
+| **Scheduled Telemetry Execution** | `VERIFIED` | Cron schedule active at `17 2 * * *` UTC on `main`. |
+| **Draft-07 Schema Gating & Zero-Email** | `VERIFIED` | 100% verified across pre-flight and pre-commit test harnesses. |
+| **GitHub App Authentication Secrets** | `PENDING OWNER ACTION` | Repository secrets (`TELEMETRY_APP_ID`, `TELEMETRY_APP_PRIVATE_KEY`) await owner configuration. Workflow degrades gracefully when omitted. |
+| **Repository Auto-Merge Setting** | `PENDING OWNER ACTION` | Requires owner activation of `allow_auto_merge` in GitHub repository settings UI. |
+| **Main Branch Ruleset Enforcement** | `PENDING OWNER ACTION` | Ruleset specification verified with zero bypasses; held disabled until App credentials are configured. |
+
+> [!NOTE]
+> Pending owner actions represent planned governance and authentication configurations that cannot be automated via standard runner tokens. They must not be described as currently operational features.
 
 ---
 

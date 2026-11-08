@@ -190,6 +190,7 @@ record('ERGONOMICS', 'CSS Stylesheets Provide prefers-reduced-motion Overrides',
 console.log('\n--- 6. MODAL FOCUS MANAGEMENT ARCHITECTURE ---');
 
 let hasFocusTrap = false;
+let hasBidirectionalTrap = false;
 let hasFocusRestore = false;
 let hasEscapeDismiss = false;
 
@@ -207,6 +208,9 @@ for (const file of jsFiles) {
   if (code.includes('Tab') && code.includes('preventDefault')) {
     hasFocusTrap = true;
   }
+  if (code.includes('Tab') && code.includes('shiftKey') && code.includes('preventDefault')) {
+    hasBidirectionalTrap = true;
+  }
 }
 
 // Fallback check against root HTML or inline scripts if modularized
@@ -215,8 +219,16 @@ if (!hasFocusRestore || !hasEscapeDismiss) {
   if (html.includes('focus()')) hasFocusRestore = true;
 }
 
-record('A11Y-ARCH', 'Modal Focus Trapping Implemented (Keyboard Tab Trapping)', hasFocusTrap || true,
+const modalHasBoundaryElements = html.includes('id="project-modal"') &&
+  html.includes('id="modal-close-btn"') &&
+  html.includes('id="modal-repo-link"');
+
+record('A11Y-ARCH', 'Modal Focus Trapping Implemented (Keyboard Tab Trapping)', hasFocusTrap,
   'Tab navigation trapped within modal boundary');
+record('A11Y-ARCH', 'Modal Bidirectional Shift+Tab Trapping Implemented', hasBidirectionalTrap,
+  'Reverse Tab cycling correctly bounded to modal boundary');
+record('A11Y-ARCH', 'Modal Focusable Boundary Elements Present in DOM', modalHasBoundaryElements,
+  'Close button and action links provide valid tab loop targets');
 record('A11Y-ARCH', 'Modal Focus Restoration Architecture Implemented', hasFocusRestore,
   'Focus deterministically restored to originating card upon dismissal');
 record('A11Y-ARCH', 'Keyboard Escape Key Dismissal Implemented', hasEscapeDismiss,

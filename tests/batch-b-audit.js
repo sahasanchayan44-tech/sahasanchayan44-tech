@@ -117,9 +117,10 @@ async function runAudit() {
     await sleep(1000);
 
     // Capture helper
+    const ROOT_DIR = require('path').resolve(__dirname, '..');
     async function capture(filename) {
       const { data } = await cdp.send('Page.captureScreenshot', { format: 'png' });
-      fs.writeFileSync(`/home/sanchayan/Projects/BLUEPRINT/${filename}`, Buffer.from(data, 'base64'));
+      fs.writeFileSync(require('path').join(ROOT_DIR, filename), Buffer.from(data, 'base64'));
     }
 
     // 1. Sheet 05: Live GitHub Activity

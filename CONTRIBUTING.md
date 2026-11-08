@@ -129,7 +129,8 @@ node tests/telemetry-sync-test.js
 ### 5. Standalone CDP Browser Suite
 Performs coordinate-based mouse interaction audits, focus trap verification, and modal URL hydration:
 ```bash
-node scratch/phase-7-1-browser-test.js
+node tests/browser-cdp-test.js
+# or: npm run test:browser
 ```
 
 ### 6. Git Diff Hygiene Check
