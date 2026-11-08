@@ -175,8 +175,11 @@ In adherence with GitHub Community Standards, the following engineering policies
 | **Pull Request Template** | Verification checklists, security assertions, and change summaries. | [.github/PULL_REQUEST_TEMPLATE.md](./.github/PULL_REQUEST_TEMPLATE.md) |
 | **Accessibility Statement** | Keyboard navigation, focus management, semantic structure, and reporting. | [ACCESSIBILITY.md](./ACCESSIBILITY.md) |
 | **CI/CD Architecture** | Automated quality pipelines, test harnesses, and safe delivery specs. | [CI_CD_ARCHITECTURE.md](./CI_CD_ARCHITECTURE.md) |
+| **Open-Source License** | Permissive MIT License terms, copyright notice, and third-party disclaimers. | [LICENSE](./LICENSE) |
 
-> **License Status**: Open-source license selection is currently pending repository owner decision.
+> **Licensing & Intellectual Property Notice**:
+> Original architecture, CAD design systems, frontend implementation, validation harnesses, vector diagrams, and telemetry schemas authored for the BLUEPRINT project are released under the [MIT License](./LICENSE) (Copyright (c) 2026 Sanchayan Saha).
+> Third-party web fonts ([IBM Plex Mono](https://github.com/IBM/plex), [Inter](https://github.com/rsms/inter), [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono)) remain subject to the SIL Open Font License 1.1. Community governance materials are adapted under CC BY 4.0. Telemetry data reflects public metadata ingested from the GitHub API. External project repositories referenced in Section 03 maintain independent, unverified license status.
 
 ---
 
