@@ -157,6 +157,8 @@ The complete 12-sheet engineering dossier is maintained in this repository under
 | **12** | `DOCUMENT INDEX` | Master document index, audit records, design specifications, and schema metadata. |
 
 > **Local Preview Access**: In local runtime development, the complete 12-sheet dossier can be inspected by serving the `docs/` directory (`python3 -m http.server 8088 --directory docs`) and opening `http://localhost:8088/index.html`.
+>
+> **Engineering Case Study**: Read the [Engineering Case Study](./CASE_STUDY.md) for architectural analysis, data integrity audits, and production release verification.
 
 ---
 
