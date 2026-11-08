@@ -1,14 +1,14 @@
 {
   "provenance": {
-    "collected_at_utc": "2026-11-08T16:06:45.760Z",
+    "collected_at_utc": "2026-11-08T16:12:59.953Z",
     "collector_version": "1.2.0",
     "access_mode": "UNAUTHENTICATED_PUBLIC_REST",
     "primary_source": "https://api.github.com/users/sahasanchayan44-tech",
     "rate_limit_snapshot": {
       "limit": 60,
-      "remaining": 37,
-      "reset_utc": "2026-11-08T17:06:40.000Z",
-      "used": 23
+      "remaining": 34,
+      "reset_utc": "2026-11-08T16:25:51.000Z",
+      "used": 26
     }
   },
   "user": {
@@ -42,14 +42,14 @@
       "category": "General",
       "primary_language": "JavaScript",
       "languages": {
-        "JavaScript": 283019
+        "JavaScript": 283018
       },
       "stars": 0,
       "forks": 0,
       "default_branch": "main",
       "created_at": "2026-11-08T04:57:48Z",
-      "updated_at": "2026-11-08T16:05:43Z",
-      "pushed_at": "2026-11-08T16:05:39Z",
+      "updated_at": "2026-11-08T16:12:33Z",
+      "pushed_at": "2026-11-08T16:12:30Z",
       "repo_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech",
       "api_description": "Engineering portfolio, interactive technical dossier, and project archive.",
       "architectural_description": "Public engineering repository registered under GitHub user namespace.",
@@ -463,6 +463,22 @@
   "recent_repository_commits": [
     {
       "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
+      "commit_sha": "bb57334",
+      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/bb5733406d759683cdc83531b07e64a40a04dcd3",
+      "author_login": "sahasanchayan44-tech",
+      "message": "fix(automation): isolate profile repository self-commits in substantive change detector",
+      "committed_at": "2026-11-08T16:12:28Z"
+    },
+    {
+      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
+      "commit_sha": "3c59e62",
+      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/3c59e62b1cd7e701332323355bf381ab70d418a8",
+      "author_login": "sahasanchayan44-tech",
+      "message": "chore(telemetry): daily GitHub data synchronization",
+      "committed_at": "2026-11-08T16:06:45Z"
+    },
+    {
+      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
       "commit_sha": "c68d7cd",
       "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/c68d7cd576c7a0a8554de5872e2c7ef53ef8874d",
       "author_login": "sahasanchayan44-tech",
@@ -484,22 +500,6 @@
       "author_login": "sahasanchayan44-tech",
       "message": "fix(automation): exclude self-authored sync commits from substantive change trigger",
       "committed_at": "2026-11-08T16:03:30Z"
-    },
-    {
-      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
-      "commit_sha": "1bdbbac",
-      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/1bdbbac4a83572c523422518db7672637612caf2",
-      "author_login": "sahasanchayan44-tech",
-      "message": "chore(telemetry): daily GitHub data synchronization",
-      "committed_at": "2026-11-08T16:01:35Z"
-    },
-    {
-      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
-      "commit_sha": "add6a0b",
-      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/add6a0bb80ab6086d98a3c1301de42e5b0c62d41",
-      "author_login": "sahasanchayan44-tech",
-      "message": "chore(telemetry): daily GitHub data synchronization",
-      "committed_at": "2026-11-08T16:00:00Z"
     },
     {
       "repository": "sahasanchayan44-tech/portfolio",
