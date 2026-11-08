@@ -10,7 +10,7 @@
     "test:functional": "node tests/functional-test.js",
     "test:dossier": "node tests/full-dossier-test.js",
     "test:responsive": "node tests/responsive-test.js",
-    "test:browser": "node scratch/phase-7-1-browser-test.js",
+    "test:browser": "node tests/browser-cdp-test.js",
     "test:a11y": "node tests/accessibility-audit.js",
     "test": "npm run test:telemetry && npm run test:functional && npm run test:dossier && npm run test:responsive && npm run test:browser",
     "audit:security": "node scripts/audit-security.js",

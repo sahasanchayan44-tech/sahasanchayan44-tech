@@ -94,7 +94,7 @@ jobs:
         run: node tests/responsive-test.js
 
       - name: Run Standalone CDP Browser Tests
-        run: node scratch/phase-7-1-browser-test.js
+        run: node tests/browser-cdp-test.js
 
   accessibility:
     name: Accessibility & Usability Audit
