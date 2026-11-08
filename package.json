@@ -1,0 +1,19 @@
+{
+  "name": "blueprint",
+  "version": "1.0.1",
+  "description": "BLUEPRINT // Interactive Technical CAD Portfolio & Architectural Dossier",
+  "author": "Sanchayan Saha (https://github.com/sahasanchayan44-tech)",
+  "private": true,
+  "scripts": {
+    "validate": "node scripts/validate-codebase.js",
+    "test:telemetry": "node tests/telemetry-sync-test.js",
+    "test:functional": "node tests/functional-test.js",
+    "test:dossier": "node tests/full-dossier-test.js",
+    "test:responsive": "node tests/responsive-test.js",
+    "test:browser": "node scratch/phase-7-1-browser-test.js",
+    "test:a11y": "node tests/accessibility-audit.js",
+    "test": "npm run test:telemetry && npm run test:functional && npm run test:dossier && npm run test:responsive && npm run test:browser",
+    "audit:security": "node scripts/audit-security.js",
+    "verify:deployment": "node scripts/verify-production-deployment.js"
+  }
+}

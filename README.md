@@ -174,6 +174,7 @@ In adherence with GitHub Community Standards, the following engineering policies
 | **Issue Templates** | Structured forms for bug reports and feature requests. | [.github/ISSUE_TEMPLATE/](./.github/ISSUE_TEMPLATE/) |
 | **Pull Request Template** | Verification checklists, security assertions, and change summaries. | [.github/PULL_REQUEST_TEMPLATE.md](./.github/PULL_REQUEST_TEMPLATE.md) |
 | **Accessibility Statement** | Keyboard navigation, focus management, semantic structure, and reporting. | [ACCESSIBILITY.md](./ACCESSIBILITY.md) |
+| **CI/CD Architecture** | Automated quality pipelines, test harnesses, and safe delivery specs. | [CI_CD_ARCHITECTURE.md](./CI_CD_ARCHITECTURE.md) |
 
 > **License Status**: Open-source license selection is currently pending repository owner decision.
 

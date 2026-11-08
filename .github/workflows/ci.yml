@@ -1,0 +1,148 @@
+name: Continuous Integration & Delivery
+
+'on':
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Codebase & Document Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate Codebase & Documents
+        run: node scripts/validate-codebase.js
+
+      - name: Check Git Diff Hygiene
+        run: git diff --check
+
+  test:
+    name: Regression & Browser Test Suites
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Establish Legacy Workspace Symlink
+        run: |
+          sudo mkdir -p /home/sanchayan/Projects
+          sudo ln -s "$GITHUB_WORKSPACE" /home/sanchayan/Projects/BLUEPRINT
+
+      - name: Start Local HTTP Server
+        run: |
+          python3 -m http.server 8088 --directory docs &
+          # Wait for server readiness
+          for i in {1..15}; do
+            if curl -s http://localhost:8088/index.html > /dev/null; then
+              echo "Server ready on port 8088"
+              break
+            fi
+            sleep 1
+          done
+
+      - name: Run Telemetry Synchronization Tests
+        run: node tests/telemetry-sync-test.js
+
+      - name: Run Functional Test Suite (Sheet 01)
+        run: node tests/functional-test.js
+
+      - name: Run Full Dossier Integration Tests (Sheets 01-12)
+        run: node tests/full-dossier-test.js
+
+      - name: Run Multi-Viewport Responsive Tests
+        run: node tests/responsive-test.js
+
+      - name: Run Standalone CDP Browser Tests
+        run: node scratch/phase-7-1-browser-test.js
+
+  accessibility:
+    name: Accessibility & Usability Audit
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run Accessibility Audit
+        run: node tests/accessibility-audit.js
+
+  security:
+    name: Security & Credential Hygiene
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run Security & Privacy Audit
+        run: node scripts/audit-security.js
+
+  verify-deployment:
+    name: Production Deployment Verification
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    needs: [test, accessibility, security]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Wait for GitHub Pages Build Propagation
+        run: |
+          echo "Waiting 30 seconds for GitHub Pages deployment propagation..."
+          sleep 30
+
+      - name: Verify Live Production Endpoints & Parity
+        run: node scripts/verify-production-deployment.js
