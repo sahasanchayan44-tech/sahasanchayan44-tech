@@ -1,0 +1,64 @@
+name: Bug Report
+description: Report a defect, regression, or unexpected behavior in BLUEPRINT
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report an issue with **BLUEPRINT**. Please complete the fields below to help us reproduce and resolve the problem.
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: A clear and concise summary of the issue.
+      placeholder: E.g., Sheet 04 project card modal fails to restore focus on Escape
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Reproduction Steps
+      description: Step-by-step instructions to reproduce the problem.
+      placeholder: |
+        1. Navigate to 'http://localhost:8088/index.html#sheet-04'
+        2. Click on project card 'chandrayaan-4.0'
+        3. Press Escape key to dismiss the modal
+        4. Observe the focused element
+    validations:
+      required: true
+  - type: textarea
+    id: expected_behaviour
+    attributes:
+      label: Expected Behaviour
+      description: A clear and concise description of what you expected to happen.
+      placeholder: E.g., Focus returns to the project card button that triggered the modal.
+    validations:
+      required: true
+  - type: textarea
+    id: actual_behaviour
+    attributes:
+      label: Actual Behaviour
+      description: A clear and concise description of what actually happened.
+      placeholder: E.g., Focus is lost to the document body.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Browser and Environment
+      description: Provide details about the client platform where the issue occurred.
+      placeholder: |
+        - Operating System: [e.g., Linux, macOS, Windows, Android, iOS]
+        - Browser & Version: [e.g., Chrome 122.0, Firefox 123.0, Safari 17.2]
+        - Viewport Dimensions: [e.g., 1440x900, 390x844, 768x1024]
+        - Device Type: [e.g., Desktop, Mobile, Tablet]
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Relevant Screenshots or Logs
+      description: Attach screenshots, screen recordings, or paste browser console log output.
+    validations:
+      required: false

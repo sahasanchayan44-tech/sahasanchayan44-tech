@@ -162,7 +162,24 @@ The complete 12-sheet engineering dossier is maintained in this repository under
 
 ---
 
-## 08 // TECHNICAL METADATA & SYSTEM FOOTER
+## 08 // REPOSITORY GOVERNANCE & COMMUNITY STANDARDS
+
+In adherence with GitHub Community Standards, the following engineering policies and contribution specifications govern this repository:
+
+| Document | Scope & Specification | Reference Link |
+| :--- | :--- | :--- |
+| **Code of Conduct** | Contributor Covenant v2.1 behavioral standards and reporting procedures. | [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) |
+| **Contributing Guidelines** | Development setup, local preview, test harnesses, and PR protocols. | [CONTRIBUTING.md](./CONTRIBUTING.md) |
+| **Security Policy** | Supported release lines and responsible private vulnerability reporting. | [SECURITY.md](./SECURITY.md) |
+| **Issue Templates** | Structured forms for bug reports and feature requests. | [.github/ISSUE_TEMPLATE/](./.github/ISSUE_TEMPLATE/) |
+| **Pull Request Template** | Verification checklists, security assertions, and change summaries. | [.github/PULL_REQUEST_TEMPLATE.md](./.github/PULL_REQUEST_TEMPLATE.md) |
+| **Accessibility Statement** | Keyboard navigation, focus management, semantic structure, and reporting. | [ACCESSIBILITY.md](./ACCESSIBILITY.md) |
+
+> **License Status**: Open-source license selection is currently pending repository owner decision.
+
+---
+
+## 09 // TECHNICAL METADATA & SYSTEM FOOTER
 
 ```
 [ SYSTEM SPECIFICATION ] // BLUEPRINT SPECIFICATION PROTOCOL v0.1.0

@@ -1,0 +1,40 @@
+name: Feature Request
+description: Propose a new feature, component, or technical enhancement for BLUEPRINT
+title: "[FEATURE]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting an enhancement for **BLUEPRINT**. Please provide detailed context to help evaluate this proposal.
+  - type: textarea
+    id: problem_motivation
+    attributes:
+      label: Problem or Motivation
+      description: What challenge, limitation, or opportunity is this feature addressing?
+      placeholder: A clear and concise description of the underlying problem or architectural goal.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the technical approach, interface design, or data flow you propose.
+      placeholder: Detailed description of how this capability should be designed or implemented.
+    validations:
+      required: true
+  - type: textarea
+    id: expected_benefits
+    attributes:
+      label: Expected Benefits
+      description: How will this benefit users, contributors, or project maintainability?
+      placeholder: List the positive outcomes or architectural improvements.
+    validations:
+      required: true
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Add any relevant mockups, reference links, performance considerations, or alternative solutions.
+    validations:
+      required: false
