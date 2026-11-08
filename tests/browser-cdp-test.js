@@ -124,7 +124,7 @@ async function run() {
     '--disable-extensions',
     '--disable-background-networking',
     '--mute-audio',
-    'about:blank'
+    TARGET_URL
   ], { stdio: 'ignore' });
 
   const cleanup = () => {
@@ -145,12 +145,13 @@ async function run() {
   });
 
   let debuggerUrl = null;
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 30; i++) {
     await sleep(300);
     try {
       const tabs = await fetchJson(`http://127.0.0.1:${PORT}/json/list`);
-      if (tabs && tabs.length > 0 && tabs[0].webSocketDebuggerUrl) {
-        debuggerUrl = tabs[0].webSocketDebuggerUrl;
+      const pageTarget = tabs && (tabs.find(t => t.type === 'page') || tabs[0]);
+      if (pageTarget && pageTarget.webSocketDebuggerUrl) {
+        debuggerUrl = pageTarget.webSocketDebuggerUrl;
         break;
       }
     } catch (e) {}
@@ -188,7 +189,18 @@ async function run() {
 
     console.log(`[NAVIGATE] Loading target: ${TARGET_URL}`);
     await client.send('Page.navigate', { url: TARGET_URL });
-    await sleep(3500); // Allow full hydration
+
+    // Deterministic readiness: wait until DOM and components are fully mounted
+    for (let i = 0; i < 50; i++) {
+      const isReady = await client.eval(`(() => {
+        return document.readyState === 'complete' &&
+               document.getElementById('modal-repo-link') !== null &&
+               document.getElementById('sheet-01') !== null;
+      })()`);
+      if (isReady) break;
+      await sleep(200);
+    }
+    await sleep(500); // Allow layout stabilization
 
     // -------------------------------------------------------------
     // SECTION 1: ADV-01 REMEDIATION AUDIT
