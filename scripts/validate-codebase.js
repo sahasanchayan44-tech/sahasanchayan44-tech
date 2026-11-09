@@ -208,6 +208,7 @@ record('Internal Relative Markdown Links Resolve', brokenLinks.length === 0,
 console.log('\n--- 5. TELEMETRY JSON SCHEMA DRAFT-07 COMPLIANCE ---');
 const dataJsonPath = path.join(DOCS_DIR, 'data', 'github-data.json');
 const schemaJsonPath = path.join(DOCS_DIR, 'data', 'github-data-schema.json');
+const contribSchemaPath = path.join(DOCS_DIR, 'data', 'contributions-schema.json');
 
 if (fs.existsSync(dataJsonPath) && fs.existsSync(schemaJsonPath)) {
   try {
@@ -225,6 +226,19 @@ if (fs.existsSync(dataJsonPath) && fs.existsSync(schemaJsonPath)) {
   }
 } else {
   record('Telemetry Files Exist', false, 'data or schema missing');
+}
+
+// TD-ARC-02: Verify reserved contributions schema integrity
+if (fs.existsSync(contribSchemaPath)) {
+  try {
+    const contribSchema = JSON.parse(fs.readFileSync(contribSchemaPath, 'utf8'));
+    const isValidDraft07 = Boolean(contribSchema.$schema && contribSchema.title && contribSchema.properties);
+    record('Contributions Schema Integrity (TD-ARC-02)', isValidDraft07, 'Valid Draft-07 architectural specification');
+  } catch (err) {
+    record('Contributions Schema Integrity (TD-ARC-02)', false, err.message);
+  }
+} else {
+  record('Contributions Schema Integrity (TD-ARC-02)', false, 'docs/data/contributions-schema.json missing');
 }
 
 // -----------------------------------------------------------------------------
@@ -251,6 +265,35 @@ for (const file of filesToScan) {
 }
 record('Zero-Email Privacy Rule Enforced', foundEmails.length === 0,
   foundEmails.length === 0 ? `${filesToScan.length} critical files scanned (0 personal emails detected)` : `Leaked in: ${foundEmails.join('; ')}`);
+
+// -----------------------------------------------------------------------------
+// 7. DUAL-TARGET SVG PROFILE ASSET SYNCHRONIZATION (TD-AST-01)
+// -----------------------------------------------------------------------------
+console.log('\n--- 7. DUAL-TARGET SVG PROFILE ASSET SYNCHRONIZATION ---');
+const rootHeaderSvg = path.join(ROOT_DIR, 'assets', 'profile', 'blueprint-header.svg');
+const docsHeaderSvg = path.join(DOCS_DIR, 'assets', 'profile', 'blueprint-header.svg');
+const rootMetricsSvg = path.join(ROOT_DIR, 'assets', 'profile', 'blueprint-metrics.svg');
+const docsMetricsSvg = path.join(DOCS_DIR, 'assets', 'profile', 'blueprint-metrics.svg');
+
+if (fs.existsSync(rootHeaderSvg) && fs.existsSync(docsHeaderSvg)) {
+  const rootBuf = fs.readFileSync(rootHeaderSvg);
+  const docsBuf = fs.readFileSync(docsHeaderSvg);
+  const isMatch = rootBuf.equals(docsBuf);
+  record('Profile Header SVG Synchronized (TD-AST-01)', isMatch,
+    isMatch ? 'assets/profile and docs/assets/profile are bit-for-bit identical' : 'Mismatch between root and docs SVG');
+} else {
+  record('Profile Header SVG Synchronized (TD-AST-01)', false, 'Missing blueprint-header.svg in root or docs');
+}
+
+if (fs.existsSync(rootMetricsSvg) && fs.existsSync(docsMetricsSvg)) {
+  const rootBuf = fs.readFileSync(rootMetricsSvg);
+  const docsBuf = fs.readFileSync(docsMetricsSvg);
+  const isMatch = rootBuf.equals(docsBuf);
+  record('Profile Metrics SVG Synchronized (TD-AST-01)', isMatch,
+    isMatch ? 'assets/profile and docs/assets/profile are bit-for-bit identical' : 'Mismatch between root and docs SVG');
+} else {
+  record('Profile Metrics SVG Synchronized (TD-AST-01)', false, 'Missing blueprint-metrics.svg in root or docs');
+}
 
 // -----------------------------------------------------------------------------
 // SUMMARY

@@ -197,4 +197,14 @@ The Data Integrity and Authenticity Audit is **COMPLETE**. All 12 sheets are ver
 - **Zero Horizontal Overflow at 1920, 1440, 768, 390, and 320px**
 - **Zero Remote Repository Modifications Made**
 
-Standing by for user inspection and explicit authorization before proceeding to Phase 3.
+---
+
+## 10. RESERVED GRAPHQL CONTRIBUTIONS SCHEMA SPECIFICATION (TD-ARC-02)
+
+### Architectural Context & Scope
+[`docs/data/contributions-schema.json`](docs/data/contributions-schema.json) defines the strict Draft-07 JSON Schema contract for GitHub's GraphQL `user(login).contributionsCollection.contributionCalendar` payload.
+
+### Operational Disposition
+- **Current Data Collection Mode:** In Phase 4, Phase 9, and Phase 12, the live automated telemetry system intentionally adopted `UNAUTHENTICATED_PUBLIC_REST` mode to eliminate credentials, Personal Access Tokens, and authentication failure surfaces.
+- **Architectural Reservation:** Because GitHub's GraphQL API requires an authenticated access token, GraphQL contribution calendar ingestion is deliberately held in reserve.
+- **Maintenance Policy:** `contributions-schema.json` is preserved as a verified architectural specification asset for future GraphQL ingestion pipelines. It is automatically validated for structural integrity by `scripts/validate-codebase.js` on every CI run.
