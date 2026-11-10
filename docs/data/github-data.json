@@ -1,14 +1,14 @@
 {
   "provenance": {
-    "collected_at_utc": "2026-11-09T09:49:10.303Z",
+    "collected_at_utc": "2026-11-10T09:50:38.822Z",
     "collector_version": "1.2.0",
     "access_mode": "UNAUTHENTICATED_PUBLIC_REST",
     "primary_source": "https://api.github.com/users/sahasanchayan44-tech",
     "rate_limit_snapshot": {
       "limit": 60,
-      "remaining": 33,
-      "reset_utc": "2026-11-09T10:32:03.000Z",
-      "used": 27
+      "remaining": 37,
+      "reset_utc": "2026-11-10T10:50:30.000Z",
+      "used": 23
     }
   },
   "user": {
@@ -25,7 +25,7 @@
   "telemetry": {
     "total_stars": 2,
     "total_forks": 2,
-    "account_age_days": 238,
+    "account_age_days": 239,
     "primary_ecosystems": [
       "JavaScript",
       "Python",
@@ -33,7 +33,7 @@
       "Kotlin",
       "Shell"
     ],
-    "public_events_90d_count": 18
+    "public_events_90d_count": 34
   },
   "repositories": [
     {
@@ -42,14 +42,14 @@
       "category": "General",
       "primary_language": "JavaScript",
       "languages": {
-        "JavaScript": 340946
+        "JavaScript": 343382
       },
       "stars": 0,
       "forks": 0,
       "default_branch": "main",
       "created_at": "2026-11-08T04:57:48Z",
-      "updated_at": "2026-11-08T23:47:12Z",
-      "pushed_at": "2026-11-08T23:47:09Z",
+      "updated_at": "2026-11-09T19:00:38Z",
+      "pushed_at": "2026-11-09T19:11:46Z",
       "repo_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech",
       "api_description": "Engineering portfolio, interactive technical dossier, and project archive.",
       "architectural_description": "Public engineering repository registered under GitHub user namespace.",
@@ -463,6 +463,30 @@
   "recent_repository_commits": [
     {
       "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
+      "commit_sha": "8ebfefd",
+      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/8ebfefd2dad8d8f2983508dcc96b06242136106e",
+      "author_login": "sahasanchayan44-tech",
+      "message": "chore(release): v1.0.1 pre-release preparation (#9)",
+      "committed_at": "2026-11-09T19:00:31Z"
+    },
+    {
+      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
+      "commit_sha": "5706d19",
+      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/5706d19e4669b5ecb286be2de586e8d1d97f9809",
+      "author_login": "sahasanchayan44-tech",
+      "message": "fix(hardening): remediate Phase 13.2 deferred technical debt findings (#8)",
+      "committed_at": "2026-11-09T17:16:38Z"
+    },
+    {
+      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
+      "commit_sha": "aa475e6",
+      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/aa475e680531d78dcb22aa214d08fb19e20420f7",
+      "author_login": "blueprint-telemetry-bot[bot]",
+      "message": "chore(telemetry): daily GitHub data synchronization (#7)",
+      "committed_at": "2026-11-09T09:50:19Z"
+    },
+    {
+      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
       "commit_sha": "dba356a",
       "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/dba356a2efaa53972bf5bb4cf81624a0f23874a6",
       "author_login": "blueprint-telemetry-bot[bot]",
@@ -476,30 +500,6 @@
       "author_login": "sahasanchayan44-tech",
       "message": "docs(audit): publish Phase 13.1 engineering debt remediation report with CI evidence",
       "committed_at": "2026-11-08T22:30:39Z"
-    },
-    {
-      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
-      "commit_sha": "8b1386d",
-      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/8b1386dba92cce36a054f959da49fbe2fcef04ad",
-      "author_login": "sahasanchayan44-tech",
-      "message": "fix(hardening): remediate P2 and P3 technical debt findings",
-      "committed_at": "2026-11-08T22:26:43Z"
-    },
-    {
-      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
-      "commit_sha": "b765305",
-      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/b7653058619346b9fc60d9ef2eb6b78dfa1dbf6e",
-      "author_login": "sahasanchayan44-tech",
-      "message": "docs(license): adopt MIT License",
-      "committed_at": "2026-11-08T21:32:55Z"
-    },
-    {
-      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
-      "commit_sha": "a2759b1",
-      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/a2759b151c9c0bf255581dc5957079469ab06846",
-      "author_login": "sahasanchayan44-tech",
-      "message": "feat(telemetry): refactor telemetry synchronization to automated pull-request architecture",
-      "committed_at": "2026-11-08T21:18:18Z"
     },
     {
       "repository": "sahasanchayan44-tech/portfolio",
