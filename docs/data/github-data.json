@@ -1,14 +1,14 @@
 {
   "provenance": {
-    "collected_at_utc": "2026-11-10T09:50:38.822Z",
+    "collected_at_utc": "2026-11-11T09:26:25.591Z",
     "collector_version": "1.2.0",
     "access_mode": "UNAUTHENTICATED_PUBLIC_REST",
     "primary_source": "https://api.github.com/users/sahasanchayan44-tech",
     "rate_limit_snapshot": {
       "limit": 60,
-      "remaining": 37,
-      "reset_utc": "2026-11-10T10:50:30.000Z",
-      "used": 23
+      "remaining": 35,
+      "reset_utc": "2026-11-11T09:43:38.000Z",
+      "used": 25
     }
   },
   "user": {
@@ -25,7 +25,7 @@
   "telemetry": {
     "total_stars": 2,
     "total_forks": 2,
-    "account_age_days": 239,
+    "account_age_days": 240,
     "primary_ecosystems": [
       "JavaScript",
       "Python",
@@ -33,7 +33,7 @@
       "Kotlin",
       "Shell"
     ],
-    "public_events_90d_count": 34
+    "public_events_90d_count": 41
   },
   "repositories": [
     {
@@ -48,8 +48,8 @@
       "forks": 0,
       "default_branch": "main",
       "created_at": "2026-11-08T04:57:48Z",
-      "updated_at": "2026-11-09T19:00:38Z",
-      "pushed_at": "2026-11-09T19:11:46Z",
+      "updated_at": "2026-11-10T09:52:00Z",
+      "pushed_at": "2026-11-10T09:51:56Z",
       "repo_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech",
       "api_description": "Engineering portfolio, interactive technical dossier, and project archive.",
       "architectural_description": "Public engineering repository registered under GitHub user namespace.",
@@ -463,6 +463,14 @@
   "recent_repository_commits": [
     {
       "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
+      "commit_sha": "b0bba7a",
+      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/b0bba7acd1398ef0db49b90d6e27c3aa2870bf38",
+      "author_login": "blueprint-telemetry-bot[bot]",
+      "message": "chore(telemetry): daily GitHub data synchronization (#10)",
+      "committed_at": "2026-11-10T09:51:54Z"
+    },
+    {
+      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
       "commit_sha": "8ebfefd",
       "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/8ebfefd2dad8d8f2983508dcc96b06242136106e",
       "author_login": "sahasanchayan44-tech",
@@ -492,14 +500,6 @@
       "author_login": "blueprint-telemetry-bot[bot]",
       "message": "chore(telemetry): daily GitHub data synchronization (#6)",
       "committed_at": "2026-11-08T23:47:07Z"
-    },
-    {
-      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
-      "commit_sha": "be92441",
-      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/be924414b70f744631e8bd9e1a226e13f0626b6c",
-      "author_login": "sahasanchayan44-tech",
-      "message": "docs(audit): publish Phase 13.1 engineering debt remediation report with CI evidence",
-      "committed_at": "2026-11-08T22:30:39Z"
     },
     {
       "repository": "sahasanchayan44-tech/portfolio",
