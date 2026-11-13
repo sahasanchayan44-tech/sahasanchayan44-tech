@@ -21,16 +21,110 @@ async function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function getJson(url) {
+function getJson(url, timeoutMs = 2000) {
   return new Promise((resolve, reject) => {
-    http.get(url, (res) => {
+    const req = http.get(url, (res) => {
+      if (res.statusCode < 200 || res.statusCode >= 300) {
+        res.resume();
+        return reject(new Error(`HTTP ${res.statusCode}`));
+      }
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => {
-        try { resolve(JSON.parse(data)); } catch (e) { reject(e); }
+        try {
+          resolve(JSON.parse(data));
+        } catch (e) {
+          reject(new Error(`Invalid JSON: ${e.message}`));
+        }
       });
-    }).on('error', reject);
+    });
+    req.on('error', reject);
+    req.setTimeout(timeoutMs, () => {
+      req.destroy(new Error(`Request timeout after ${timeoutMs}ms`));
+    });
   });
+}
+
+async function waitForCdpReadiness(port, procState, options = {}) {
+  const harnessName = options.harnessName || 'Full Dossier Integration Harness';
+  const timeoutMs = options.timeoutMs || 30000;
+  const pollIntervalMs = options.pollIntervalMs || 300;
+  const startTime = Date.now();
+
+  let versionData = null;
+  let targets = null;
+  let lastStatus = 'Initiating readiness check';
+
+  while (Date.now() - startTime < timeoutMs) {
+    // 1. Process liveness check
+    if (procState.exited) {
+      const exitDetail = procState.spawnError
+        ? `Spawn error: ${procState.spawnError.message}`
+        : `Process exited with code ${procState.code} (signal: ${procState.signal})`;
+      lastStatus = `Chrome process terminated unexpectedly: ${exitDetail}`;
+      break;
+    }
+
+    // 2. Query /json/version first
+    if (!versionData) {
+      try {
+        const ver = await getJson(`http://127.0.0.1:${port}/json/version`);
+        if (ver && (ver.Browser || ver.webSocketDebuggerUrl)) {
+          versionData = ver;
+          lastStatus = `Version endpoint responsive (${ver.Browser || 'OK'})`;
+        } else {
+          lastStatus = 'Version endpoint returned invalid metadata';
+        }
+      } catch (err) {
+        lastStatus = `Version endpoint not ready: ${err.message}`;
+      }
+    }
+
+    // 3. Once /json/version is verified, query /json
+    if (versionData) {
+      try {
+        const list = await getJson(`http://127.0.0.1:${port}/json`);
+        if (Array.isArray(list) && list.length > 0) {
+          const pageTarget = list.find(t => t.type === 'page') || list[0];
+          if (pageTarget && pageTarget.webSocketDebuggerUrl) {
+            targets = list;
+            lastStatus = `Page target acquired: ${pageTarget.webSocketDebuggerUrl}`;
+            break;
+          } else {
+            lastStatus = 'Targets present but missing webSocketDebuggerUrl';
+          }
+        } else {
+          lastStatus = 'Target endpoint returned empty array';
+        }
+      } catch (err) {
+        lastStatus = `Target endpoint not ready: ${err.message}`;
+      }
+    }
+
+    await sleep(pollIntervalMs);
+  }
+
+  const elapsedMs = Date.now() - startTime;
+
+  if (!targets || targets.length === 0) {
+    const errorDetails = [
+      `[CDP STARTUP FAILURE] ${harnessName}`,
+      `Expected Port: ${port}`,
+      `Elapsed Time: ${elapsedMs}ms (timeout: ${timeoutMs}ms)`,
+      `Last Status: ${lastStatus}`,
+      `Process Alive: ${!procState.exited}`,
+      `Exit Code: ${procState.code !== null ? procState.code : 'N/A'}`,
+      `Exit Signal: ${procState.signal !== null ? procState.signal : 'N/A'}`,
+      `Spawn Error: ${procState.spawnError ? procState.spawnError.message : 'None'}`,
+      `Version Endpoint Responsive: ${Boolean(versionData)}`,
+      `Targets Available: ${Boolean(targets && targets.length > 0)}`,
+      `Captured Stderr:\n${procState.stderr.trim() || '(empty)'}`
+    ].join('\n  ');
+
+    throw new Error(errorDetails);
+  }
+
+  return { versionData, targets, elapsedMs };
 }
 
 class CDPClient {
@@ -86,6 +180,7 @@ class CDPClient {
 
 async function runFullDossierAudit() {
   console.log('=== STARTING COMPLETE 12-SHEET BLUEPRINT INTEGRATION AUDIT ===');
+  // 1. Launch Chrome Headless with Remote Debugging
   const port = 9337;
   const chrome = spawn('google-chrome', [
     '--headless=new',
@@ -94,14 +189,45 @@ async function runFullDossierAudit() {
     '--disable-gpu',
     '--disable-extensions',
     '--disable-background-networking',
+    '--enable-logging=stderr',
     `--remote-debugging-port=${port}`,
     'http://localhost:8088/index.html'
   ]);
 
-  let chromeStderr = '';
+  const procState = {
+    exited: false,
+    code: null,
+    signal: null,
+    spawnError: null,
+    isCleaningUp: false,
+    stderr: ''
+  };
+
+  chrome.on('error', (err) => {
+    procState.spawnError = err;
+    procState.exited = true;
+  });
+
+  chrome.on('exit', (code, signal) => {
+    procState.exited = true;
+    procState.code = code;
+    procState.signal = signal;
+  });
+
   if (chrome.stderr) {
-    chrome.stderr.on('data', chunk => chromeStderr += chunk.toString());
+    chrome.stderr.on('data', chunk => {
+      procState.stderr += chunk.toString();
+    });
   }
+
+  const emergencyCleanup = () => {
+    procState.isCleaningUp = true;
+    try {
+      if (!chrome.killed) chrome.kill('SIGTERM');
+    } catch (e) {}
+  };
+  process.on('SIGINT', emergencyCleanup);
+  process.on('SIGTERM', emergencyCleanup);
 
   let cdp;
   const results = [];
@@ -113,17 +239,13 @@ async function runFullDossierAudit() {
   }
 
   try {
-    let targets = null;
-    for (let i = 0; i < 30; i++) {
-      await sleep(300);
-      try {
-        targets = await getJson(`http://127.0.0.1:${port}/json`);
-        if (targets && targets.length > 0) break;
-      } catch (e) {}
-    }
-    if (!targets || targets.length === 0) {
-      throw new Error(`Chrome failed to expose DevTools target on port ${port}. Stderr: ${chromeStderr}`);
-    }
+    const { targets, elapsedMs } = await waitForCdpReadiness(port, procState, {
+      harnessName: 'tests/full-dossier-test.js (Sheets 01-12 Integration)',
+      timeoutMs: 30000,
+      pollIntervalMs: 300
+    });
+    console.log(`[INIT] Chrome DevTools Protocol ready on port ${port} in ${elapsedMs}ms`);
+
     const pageTarget = targets.find(t => t.type === 'page') || targets[0];
     cdp = new CDPClient(pageTarget.webSocketDebuggerUrl);
     await cdp.ready();
@@ -258,8 +380,11 @@ async function runFullDossierAudit() {
     }
 
   } finally {
+    procState.isCleaningUp = true;
     if (cdp) cdp.close();
-    chrome.kill();
+    try {
+      if (!chrome.killed) chrome.kill('SIGTERM');
+    } catch (e) {}
   }
 
   const allPassed = results.every(r => r.passed);
