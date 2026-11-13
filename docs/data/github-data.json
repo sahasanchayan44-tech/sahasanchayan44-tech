@@ -1,13 +1,13 @@
 {
   "provenance": {
-    "collected_at_utc": "2026-11-12T09:50:40.613Z",
+    "collected_at_utc": "2026-11-13T09:32:10.784Z",
     "collector_version": "1.2.0",
     "access_mode": "UNAUTHENTICATED_PUBLIC_REST",
     "primary_source": "https://api.github.com/users/sahasanchayan44-tech",
     "rate_limit_snapshot": {
       "limit": 60,
       "remaining": 36,
-      "reset_utc": "2026-11-12T10:10:35.000Z",
+      "reset_utc": "2026-11-13T09:59:14.000Z",
       "used": 24
     }
   },
@@ -23,33 +23,93 @@
     "html_url": "https://github.com/sahasanchayan44-tech"
   },
   "telemetry": {
-    "total_stars": 2,
+    "total_stars": 1,
     "total_forks": 2,
-    "account_age_days": 241,
+    "account_age_days": 242,
     "primary_ecosystems": [
       "JavaScript",
-      "Python",
       "TypeScript",
+      "Python",
       "Kotlin",
       "Shell"
     ],
-    "public_events_90d_count": 41
+    "public_events_90d_count": 44
   },
   "repositories": [
+    {
+      "name": "chandrayaan-4.0",
+      "project_id": "PRJ-04",
+      "category": "Space & Systems",
+      "primary_language": "JavaScript",
+      "languages": {
+        "JavaScript": 217899,
+        "CSS": 35932
+      },
+      "stars": 1,
+      "forks": 0,
+      "default_branch": "main",
+      "created_at": "2026-07-16T08:06:31Z",
+      "updated_at": "2026-11-13T03:32:29Z",
+      "pushed_at": "2026-07-16T20:16:33Z",
+      "repo_url": "https://github.com/sahasanchayan44-tech/chandrayaan-4.0",
+      "api_description": null,
+      "architectural_description": "Mission telemetry and orbital trajectory visualization dashboard for lunar exploration simulation. Real-time telemetry monitoring with Firebase backend.",
+      "architecture": "Next.js 16 + Firebase",
+      "key_components": [
+        "Next.js 16",
+        "Mission Dashboard",
+        "Firebase DB"
+      ],
+      "provenance": {
+        "metadata_source": "GitHub REST API (v3 public)",
+        "architecture_source": "Audited Codebase Inspection (DATA_INTEGRITY_AUDIT.md)"
+      }
+    },
+    {
+      "name": "neuroverse",
+      "project_id": "PRJ-03",
+      "category": "Spatial 3D",
+      "primary_language": "TypeScript",
+      "languages": {
+        "TypeScript": 1146972,
+        "Python": 7357,
+        "JavaScript": 3091,
+        "CSS": 2220
+      },
+      "stars": 0,
+      "forks": 0,
+      "default_branch": "main",
+      "created_at": "2026-07-22T15:03:56Z",
+      "updated_at": "2026-11-13T03:32:25Z",
+      "pushed_at": "2026-07-25T20:31:42Z",
+      "repo_url": "https://github.com/sahasanchayan44-tech/neuroverse",
+      "api_description": null,
+      "architectural_description": "Cognitive neural interface featuring interactive 3D brain model visualizers, full-stack Express server, and Google Gemini multimodal AI integration.",
+      "architecture": "Next.js + Express + Gemini",
+      "key_components": [
+        "Next.js 14",
+        "3D Brain",
+        "Gemini API"
+      ],
+      "provenance": {
+        "metadata_source": "GitHub REST API (v3 public)",
+        "architecture_source": "Audited Codebase Inspection (DATA_INTEGRITY_AUDIT.md)"
+      }
+    },
     {
       "name": "sahasanchayan44-tech",
       "project_id": "PRJ-sahasanchayan44-tech",
       "category": "General",
       "primary_language": "JavaScript",
       "languages": {
-        "JavaScript": 343382
+        "JavaScript": 355286
       },
       "stars": 0,
       "forks": 0,
       "default_branch": "main",
       "created_at": "2026-11-08T04:57:48Z",
-      "updated_at": "2026-11-11T10:27:37Z",
-      "pushed_at": "2026-11-11T09:27:33Z",
+      "updated_at": "2026-11-12T10:52:13Z",
+      "pushed_at": "2026-11-13T03:12:29Z",
       "repo_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech",
       "api_description": "Engineering portfolio, interactive technical dossier, and project archive.",
       "architectural_description": "Public engineering repository registered under GitHub user namespace.",
@@ -119,66 +179,6 @@
         "Turborepo",
         "Python ML",
         "Docker Engine"
-      ],
-      "provenance": {
-        "metadata_source": "GitHub REST API (v3 public)",
-        "architecture_source": "Audited Codebase Inspection (DATA_INTEGRITY_AUDIT.md)"
-      }
-    },
-    {
-      "name": "neuroverse",
-      "project_id": "PRJ-03",
-      "category": "Spatial 3D",
-      "primary_language": "TypeScript",
-      "languages": {
-        "TypeScript": 1146972,
-        "Python": 7357,
-        "JavaScript": 3091,
-        "CSS": 2220
-      },
-      "stars": 1,
-      "forks": 0,
-      "default_branch": "main",
-      "created_at": "2026-07-22T15:03:56Z",
-      "updated_at": "2026-07-25T20:31:45Z",
-      "pushed_at": "2026-07-25T20:31:42Z",
-      "repo_url": "https://github.com/sahasanchayan44-tech/neuroverse",
-      "api_description": null,
-      "architectural_description": "Cognitive neural interface featuring interactive 3D brain model visualizers, full-stack Express server, and Google Gemini multimodal AI integration.",
-      "architecture": "Next.js + Express + Gemini",
-      "key_components": [
-        "Next.js 14",
-        "3D Brain",
-        "Gemini API"
-      ],
-      "provenance": {
-        "metadata_source": "GitHub REST API (v3 public)",
-        "architecture_source": "Audited Codebase Inspection (DATA_INTEGRITY_AUDIT.md)"
-      }
-    },
-    {
-      "name": "chandrayaan-4.0",
-      "project_id": "PRJ-04",
-      "category": "Space & Systems",
-      "primary_language": "JavaScript",
-      "languages": {
-        "JavaScript": 217899,
-        "CSS": 35932
-      },
-      "stars": 1,
-      "forks": 0,
-      "default_branch": "main",
-      "created_at": "2026-07-16T08:06:31Z",
-      "updated_at": "2026-07-22T15:04:31Z",
-      "pushed_at": "2026-07-16T20:16:33Z",
-      "repo_url": "https://github.com/sahasanchayan44-tech/chandrayaan-4.0",
-      "api_description": null,
-      "architectural_description": "Mission telemetry and orbital trajectory visualization dashboard for lunar exploration simulation. Real-time telemetry monitoring with Firebase backend.",
-      "architecture": "Next.js 16 + Firebase",
-      "key_components": [
-        "Next.js 16",
-        "Mission Dashboard",
-        "Firebase DB"
       ],
       "provenance": {
         "metadata_source": "GitHub REST API (v3 public)",
@@ -463,6 +463,22 @@
   "recent_repository_commits": [
     {
       "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
+      "commit_sha": "bbb2042",
+      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/bbb20421513040e2e1be113649043ecc7ba84314",
+      "author_login": "sahasanchayan44-tech",
+      "message": "fix(tests): remediate CDP browser startup race condition and process exit monitoring (#13)",
+      "committed_at": "2026-11-13T03:12:26Z"
+    },
+    {
+      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
+      "commit_sha": "28ac7fc",
+      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/28ac7fc2f834416b9d53b2d00866b15cd5abce1b",
+      "author_login": "blueprint-telemetry-bot[bot]",
+      "message": "chore(telemetry): daily GitHub data synchronization (#12)",
+      "committed_at": "2026-11-12T09:52:08Z"
+    },
+    {
+      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
       "commit_sha": "5fb2197",
       "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/5fb2197d844182a8ffd48df9c93740261847a08d",
       "author_login": "blueprint-telemetry-bot[bot]",
@@ -484,22 +500,6 @@
       "author_login": "sahasanchayan44-tech",
       "message": "chore(release): v1.0.1 pre-release preparation (#9)",
       "committed_at": "2026-11-09T19:00:31Z"
-    },
-    {
-      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
-      "commit_sha": "5706d19",
-      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/5706d19e4669b5ecb286be2de586e8d1d97f9809",
-      "author_login": "sahasanchayan44-tech",
-      "message": "fix(hardening): remediate Phase 13.2 deferred technical debt findings (#8)",
-      "committed_at": "2026-11-09T17:16:38Z"
-    },
-    {
-      "repository": "sahasanchayan44-tech/sahasanchayan44-tech",
-      "commit_sha": "aa475e6",
-      "commit_url": "https://github.com/sahasanchayan44-tech/sahasanchayan44-tech/commit/aa475e680531d78dcb22aa214d08fb19e20420f7",
-      "author_login": "blueprint-telemetry-bot[bot]",
-      "message": "chore(telemetry): daily GitHub data synchronization (#7)",
-      "committed_at": "2026-11-09T09:50:19Z"
     },
     {
       "repository": "sahasanchayan44-tech/portfolio",
